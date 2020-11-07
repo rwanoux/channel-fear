@@ -29,13 +29,11 @@
     <div class="bloque aptitudes">
         <div class="titre1" title="35 POINTS À RÉPARTIR (1 PT = 1 PT)">APTITUDES</div>
         {{#each data.aptitudes as |apti id|}}
-
         <div>
             <input class="channelfear" type="number" name="data.aptitudes.{{id}}.value" value="{{apti.value}}"
                 data-dtype="Number">
-            <button type="button" class="boutonApt roll">{{apti.label}}</button>
+            <button type="button" class="boutonApt roll" rollApti="{{apti.label}}">{{apti.label}}</button>
         </div>
-
         {{/each}}
     </div>
 

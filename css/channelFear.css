@@ -921,13 +921,15 @@ body {
   -webkit-box-flex: 0;
   -ms-flex: 0 0 24px;
   flex: 0 0 24px;
-  margin-right: 5px;
+  margin: 5px;
   max-width: 30px;
   display: inline;
+  border: none;
 }
 
 .channelfear .items-list .item img {
   display: block;
+  border: none;
 }
 
 .channelfear .items-list .item-name {

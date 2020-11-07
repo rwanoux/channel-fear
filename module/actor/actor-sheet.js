@@ -49,6 +49,8 @@
 
   /** @override */
   activateListeners(html) {
+    let data=this.actor.data.data;
+    
     super.activateListeners(html);
 
     // Everything below here is only needed if the sheet is editable
@@ -83,6 +85,14 @@
         li.addEventListener("dragstart", handler, false);
       });
     }
+    html.find(".boutonApt").click(ev=>{
+      let apt=ev.target.getAttribute("rollApti");
+      let aptDice=data.aptitudes[apt].value;
+      console.log(aptDice);
+
+    });
+
+
   }
 
   /**

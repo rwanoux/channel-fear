@@ -16,13 +16,15 @@
 
     img.item-image {
       flex: 0 0 24px;
-      margin-right: 5px;  
+      margin: 5px;  
       max-width:30px;
       display : inline;
+      border: none;
     }
 
     img {
       display: block;
+      border: none;
     
     }
   }
