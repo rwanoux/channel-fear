@@ -1,0 +1,36 @@
+<form class="{{cssClass}}" autocomplete="off">
+
+
+
+
+    <div class="bloque">
+        <label class="pastille">nom </label>
+        <input name="name" class=" channelfear" type="text" value="{{item.name}}" placeholder="Name" />
+        <div class="compteur ">
+            <label class="pastille">aptitude</label>
+
+            <select name="data.aptitudeName">
+                {{#select data.aptitudeName}}
+                <option>-selectionner l'apitude-</option>
+                {{#each config.aptitude as |apti|}}
+                <option value="{{apti}}">{{apti}}</option>
+                {{/each}}
+                {{/select}}
+            </select>
+
+            <label class="pastille">relances</label>
+            <input type="number" name ="data.relances"class="channelfear" value="{{data.relances}}" placeholder="0" />
+        </div>
+        <div class="bloque">
+            <label class="pastille">description</label>
+
+            <div class="property-textarea" contenteditable="true" data-edit="data.description">
+                {{{data.description}}}
+            </div>
+
+
+        </div>
+    </div>
+
+
+</form>
