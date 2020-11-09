@@ -1,15 +1,14 @@
 <form class="{{cssClass}} bloque" autocomplete="off">
-    <header class="sheet-header">
-        <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}"/>
-        <div class="header-fields">
-            <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="Name"/></h1>
-        </div>
-    </header>
+    <div class="bloque">
+        <img class="item-image rot" src="{{item.img}}" data-edit="img" title="{{item.name}}" />
+        <label class="pastille">nom </label>
+        <input name="name" class=" channelfear" type="text" value="{{item.name}}" placeholder="Name" />
+    </div>
 
 
 
 
-    <section class="sheet-body bloque">
+    <section class=" bloque">
 
     
             {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}

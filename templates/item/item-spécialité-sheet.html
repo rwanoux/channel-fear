@@ -4,9 +4,14 @@
 
 
     <div class="bloque">
-        <label class="pastille">nom </label>
-        <input name="name" class=" channelfear" type="text" value="{{item.name}}" placeholder="Name" />
-        <div class="compteur ">
+
+        <div class="bloque">
+            <img class="item-image rot" src="{{item.img}}" data-edit="img" title="{{item.name}}" />
+            <label class="pastille">nom </label>
+            <input name="name" class=" channelfear" type="text" value="{{item.name}}" placeholder="Name" />
+        </div>
+
+        <div >
             <label class="pastille">aptitude</label>
 
             <select name="data.aptitudeName">
@@ -21,7 +26,7 @@
             <label class="pastille">relances</label>
             <input type="number" name ="data.relances"class="channelfear" value="{{data.relances}}" placeholder="0" />
         </div>
-        <div class="">
+        <div class="bloque">
             <label class="pastille">description</label>
             {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
         </div>
