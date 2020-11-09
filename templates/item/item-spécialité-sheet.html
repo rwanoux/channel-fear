@@ -21,14 +21,9 @@
             <label class="pastille">relances</label>
             <input type="number" name ="data.relances"class="channelfear" value="{{data.relances}}" placeholder="0" />
         </div>
-        <div class="bloque">
+        <div class="">
             <label class="pastille">description</label>
-
-            <div class="property-textarea" contenteditable="true" data-edit="data.description">
-                {{{data.description}}}
-            </div>
-
-
+            {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
         </div>
     </div>
 

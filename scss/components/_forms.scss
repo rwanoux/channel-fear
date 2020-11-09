@@ -205,21 +205,9 @@
   flex: 0;
 }
 
-.sheet-body,
-.sheet-body .tab,
-.sheet-body .tab .editor {
-  height: 100%;
-}
 
-.tox {
-  .tox-editor-container {
-    background: $c-white;
-  }
 
-  .tox-edit-area {
-    padding: 0 8px;
-  }
-}
+
 
 input.channelfear {
   max-width: 200px;
@@ -263,6 +251,7 @@ input.compt{
   box-shadow: 5px 5px 21px 1px rgba(0, 0, 0, 0.3) inset;
 }
 .bloque {
+ 
   position: relative;
   -webkit-box-sizing: content-box;
   -moz-box-sizing: content-box;
@@ -317,7 +306,16 @@ input.compt{
   padding-right: 10px;
   border: none;
 }
-
+.rot90 {
+  -webkit-transform: rotateZ(270deg);
+  -ms-transform: rotate(270deg);
+  transform: rotateZ(270deg);
+  left: 100px;
+  position: relative;
+  width: fit-content;
+  /* height: fit-content; */
+  /* font-size: large; */
+}
 .rot {
   font: normal 16px/normal "Times New Roman", Times, serif;
   color: rgba(0, 0, 0, 0.9);
@@ -525,15 +523,12 @@ min-height: 90px;
 }
 
 .tox-tinymce {
-  width: 200px;
   height: 300px!important;
 }
+.editor{
+  min-height: 45px;
 
-.editor-edit {
-  display: block!important;
-  top: -30px;
 }
-
 div.selectApti>div.selectApti-inner {
   display: none;
 }
