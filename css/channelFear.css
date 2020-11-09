@@ -166,6 +166,107 @@ body {
   box-shadow: -1px 2px 5px 1px rgba(0, 0, 0, 0.7), -1px 2px 100px rgba(255, 255, 255, 0.6) inset;
 }
 
+#chat-log .info {
+  font-size: 16px;
+  font-style: italic;
+}
+
+#chat-log .resultat {
+  font-size: 18px;
+  text-align: end;
+}
+
+#chat-log .resultat span {
+  border: 1px solid black;
+  padding: 5px;
+}
+
+#chat-log .reussite {
+  font-size: 20px;
+  text-shadow: 1px 1px 8px green;
+  text-align: end;
+  color: #1a251a;
+}
+
+#chat-log .echec {
+  font-size: 20px;
+  text-shadow: 1px 1px 8px red;
+  text-align: end;
+  color: #311d1d;
+}
+
+#chat-log .bloque {
+  position: relative;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+  margin: 8px 5px;
+  padding: 10px;
+  border: none;
+  border-radius: 18px;
+  font: normal 16px/normal "Times New Roman", Times, serif;
+  color: rgba(0, 0, 0, 0.9);
+  -o-text-overflow: clip;
+  text-overflow: clip;
+  background-image: -webkit-gradient(linear, left top, right top, color-stop(0, #6b717f), color-stop(33%, #d4d4d4), to(#b0c3d3));
+  background-image: -o-linear-gradient(left, #6b717f 0, #d4d4d4 33%, #b0c3d3 100%);
+  background-image: linear-gradient(90deg, #6b717f 0, #d4d4d4 33%, #b0c3d3 100%);
+  background-position: 50% 50%;
+  background-origin: padding-box;
+  -webkit-background-clip: border-box;
+  background-clip: border-box;
+  background-size: auto auto;
+  -webkit-box-shadow: 0 0 7px 4px rgba(65, 96, 119, 0.5);
+  box-shadow: 0 0 7px 4px rgba(65, 96, 119, 0.5);
+}
+
+#chat-log .titre1 {
+  text-shadow: 1px 1px 26px #0b1368;
+  border: 2px solid black;
+  border-radius: 15px 20px 0 0 / 19px 20px 0 0;
+  font: normal 1.5em/normal "Times New Roman", Times, serif;
+  color: white;
+  background: black;
+  -webkit-box-shadow: 0 0 9px 4px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 9px 4px rgba(0, 0, 0, 0.5);
+  text-shadow: rgba(74, 134, 232, 0.02);
+  padding-left: 10px;
+}
+
+#chat-log .titre2 {
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+  font: normal 16px/normal "Times New Roman", Times, serif;
+  color: white;
+  -o-text-overflow: clip;
+  text-overflow: clip;
+  background: #302d2d;
+  padding-left: 10px;
+  padding-right: 10px;
+  border: none;
+}
+
+#chat-log .rot {
+  font: normal 16px/normal "Times New Roman", Times, serif;
+  color: rgba(0, 0, 0, 0.9);
+  -o-text-overflow: clip;
+  text-overflow: clip;
+  -webkit-box-shadow: 5px 5px 8px 2px rgba(0, 0, 0, 0.4);
+  box-shadow: 5px 5px 8px 2px rgba(0, 0, 0, 0.4);
+  -webkit-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
+  -o-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
+  transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
+  -webkit-transform: rotateZ(1deg);
+  -ms-transform: rotate(1deg);
+  transform: rotateZ(1deg);
+}
+
+#chat-log .rot:hover {
+  -webkit-transform: scaleX(1.1) scaleY(1.1);
+  -ms-transform: scaleX(1.05) scaleY(1.05);
+  transform: scaleX(1.05) scaleY(1.05);
+  z-index: 50;
+}
+
 #chat-log .message {
   background: url(../img/fondcharsheet.png) repeat;
   animation: fromLeft 0.2s;
@@ -180,7 +281,7 @@ body {
   width: 95%;
   background-color: rgba(196, 232, 233, 0.678) !important;
   z-index: -1;
-  margin-left: 20px;
+  margin-left: 5px;
   -webkit-transform: scaleX(1) scaleY(0.9);
   -ms-transform: scaleX(1) scaleY(0.9);
   transform: scaleX(1) scaleY(0.9);
@@ -188,20 +289,12 @@ body {
   -webkit-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
   -o-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
   transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
-  color: #e6ffb5;
+  color: #1c1d1b;
 }
 
-#chat-log .message .message-header {
+#chat-log #chat-log .message .message-header {
   line-height: 20px;
-  color: #bfbdac;
-}
-
-.message:hover {
-  width: 100%;
-  -webkit-transform: scaleX(1) scaleY(1);
-  -ms-transform: scaleX(1) scaleY(1);
-  transform: scaleX(1) scaleY(1);
-  z-index: 1000;
+  color: #000000;
 }
 
 @keyframes fromLeft {
@@ -427,6 +520,9 @@ body {
 }
 
 .channelfear .compteur {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
@@ -434,6 +530,14 @@ body {
   grid-row: 3/4;
   -ms-flex-pack: distribute;
   justify-content: space-around;
+}
+
+.channelfear .compteur .titre1 {
+  height: 100%;
+}
+
+.channelfear .compteur .titre1 input {
+  background-color: rgba(187, 187, 187, 0.863);
 }
 
 .channelfear .compteur > input {

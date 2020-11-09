@@ -166,6 +166,14 @@
 }
 
 .compteur {
+  align-items: center;
+  .titre1{
+    height:100%;
+    input{
+      background-color: rgba(187, 187, 187, 0.863);
+
+    }
+  }
   display: inline-flex;
   grid-column: 1/5;
   grid-row: 3/4;

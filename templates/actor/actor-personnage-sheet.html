@@ -32,7 +32,7 @@
         <div>
             <input class="channelfear" type="number" name="data.aptitudes.{{id}}.value" value="{{apti.value}}"
                 data-dtype="Number">
-            <button type="button" class="boutonApt roll" rollApti="{{apti.label}}">{{apti.label}}</button>
+            <button type="button" class="boutonApt roll" rollApti="{{id}}">{{apti.label}}</button>
         </div>
         {{/each}}
     </div>
@@ -43,7 +43,8 @@
     <div class="bloque specialite">
         <div class="titre1" title="en fonction du profil">SPECIALITES</div>
         <ol>
-        {{#each actor.items as |item id|}}{{#if isSpé}}
+        {{#each actor.items as |item id|}}
+        {{#if isSpé}}
         <li class="item  bloque flexrow" data-item-id="{{item._id}}"title="{{item.data.description}}">
             <h4 class="item-name">{{item.name}}</h4>
             <div class="bloque">
@@ -68,25 +69,16 @@
 
 
     <div class="bloque compteur ">
-
-        <div class="titre1 "
-            title="À 2 +1 RÉUSSITE EXIGÉE // À 1 +2 RÉUSSITES EXIGÉES // À 0 INCONSCIENT. AGONIE 1D TOURS : ENDURER/4 ">
-            SANTE
-            <input class="compt " class="right " type="number" name="data.compteur.santé"
-                value="{{data.compteur.santé}}" />
+        {{#each data.compteurs as |compt id|}}
+        <div >
+            <h1 class="titre1">{{compt.label}}
+            
+            <input  type="number" name="data.compteurs.{{id}}.value" value="{{compt.value}}"
+                data-dtype="Number">
+            </h1>
         </div>
-        <div class="titre1 "
-            title="RÉUSSITE +1 RÉUSSITE AUTOMATIQUE // DÉFORMATION PROFESSIONNELLE JET AUTOMATIQUEMENT RÉUSSI 1 FOIS PAR ÉPISODE ">
-            RESSOURCE
-            <input class="compt " class="right " type="number" name="data.compteur.ressources"
-                value="{{data.compteur.ressources}}" />
-        </div>
-        <div class="titre1 "
-            title="5 POINTS 0R> 1R EN SPÉCIALITÉ // 10 POINTS 1R > 2R EN SPÉCIALITÉ // 15 POINTS 2R > 3R EN SPÉCIALITÉ ou +1D EN aptitudes ou +1 DÉFORMATION PROFESSIONNELLE">
-            EVOLUTION
-            <input class="compt" class="right" type="number" name="data.compteur.évolution"
-                value="{{data.compteur.évolution}}" />
-        </div>
+        {{/each}}
+        
 
     </div>
 

@@ -49,13 +49,23 @@
                     "value": 2,
                     "label": "viser"
                 }
-            
-            
+
+
             },
             "compteurs": {
-                "santé": 6,
-                "ressources": 6,
-                "évolution": 0
+                "santé": {
+                    "value": 6,
+                    "label": "santé"
+                },
+                "ressource":{
+                    "value": 6,
+                    "label": "ressource"
+                },
+                "evolution":{
+                    "value": 6,
+                    "label": "évolution"
+                }
+
             },
             "notes": {
                 "label": "notes",
@@ -66,20 +76,20 @@
 
     },
     "Item": {
-        "types": ["item","arme","spécialité"],
+        "types": ["item", "arme", "spécialité"],
         "item": {
             "description": "",
             "quantity": 1,
             "weight": 0,
             "attributes": {}
         },
-        "armes":{},
-        "spécialité":{
-            "label":"",
-            "aptitudeName":"",
-            "aptitudeValue":0,
-            "relances":0,
-            "description":"desc"
+        "armes": {},
+        "spécialité": {
+            "label": "",
+            "aptitudeName": "",
+            "aptitudeValue": 0,
+            "relances": 0,
+            "description": "desc"
         }
     }
 }

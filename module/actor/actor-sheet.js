@@ -1,8 +1,12 @@
+import {rollAptitude} from"../rolls/rollApti.js"
+
+
+
 /**
  * Extend the basic ActorSheet with some very simple modifications
  * @extends {ActorSheet}
  */
- export class ChannelFearActorSheet extends ActorSheet {
+export class ChannelFearActorSheet extends ActorSheet {
 
   /** @override */
   static get defaultOptions() {
@@ -21,7 +25,7 @@
   getData() {
     const data = super.getData();
     data.dtypes = ["String", "Number", "Boolean"];
-    
+
 
     // Prepare items.
     if (this.actor.data.type == 'personnage') {
@@ -42,15 +46,19 @@
     const actorData = sheetData.actor;
 
 
-  
+
   }
 
   /* -------------------------------------------- */
 
   /** @override */
   activateListeners(html) {
-    let data=this.actor.data.data;
-    
+
+
+    let data = this.actor.data.data;
+    let actor=this.actor;
+
+
     super.activateListeners(html);
 
     // Everything below here is only needed if the sheet is editable
@@ -85,11 +93,13 @@
         li.addEventListener("dragstart", handler, false);
       });
     }
-    html.find(".boutonApt").click(ev=>{
-      let apt=ev.target.getAttribute("rollApti");
-      let aptDice=data.aptitudes[apt].value;
-      console.log(aptDice);
+    html.find(".boutonApt").click(ev => {
+      let apt = ev.target.getAttribute("rollApti");
+      let aptDice = data.aptitudes[apt].value;
 
+      rollAptitude(actor,apt);
+
+   
     });
 
 

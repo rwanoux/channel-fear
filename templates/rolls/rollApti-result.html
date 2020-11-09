@@ -1,0 +1,47 @@
+
+<div >
+    <h1 class="titre1">{{actor.name}} </h1>
+    <p class="info">
+       jet de {{aptiName}} avec {{aptiDice}} dés
+    </p>
+    {{#if relances}}
+    <p class="info">
+        {{relances}} relance(s) grâce au 6
+       
+    </p class="info">
+     {{/if}}
+     {{#if ressources}}
+     <p class="info">
+         {{ressources}} points de ressources ont été convertis en succès automatiques
+        
+     </p>
+      {{/if}}
+      
+      <p class="resultat">
+          <span>{{result}}</span> réussites au total
+         
+      </p>
+      <p class="info">
+          la difficulté demandait {{difficulte}} réussite(s)</p>
+    </p>
+    
+    {{#if echec}}
+    <p class="echec">
+        c'est un échec
+    </p>
+    {{/if}}
+    {{#if reussite}}
+    <p class="reussite">
+        c'est une réussite
+    </p>
+    {{/if}}
+    {{#if echecT}}
+    <p class="echec">
+        c'est un échec total (-1pt de resource)
+    </p>
+    {{/if}}
+    {{#if reussiteT}}
+    <p class="reussite">
+        c'est une reussite totale (+1pt de ressource)
+    </p>
+    {{/if}}
