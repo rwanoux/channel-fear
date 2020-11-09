@@ -2,9 +2,9 @@
 
 ## à faire
 
-implémenter les jets de spécialités avec relances
-
-# release notes
+implémenter les jets de spécialités avec relances,
+rendre le tout plus joli
+macros des items armes
 
 ### v0.0.1
 
