@@ -18,7 +18,7 @@ export class ChannelFearItemSheet extends ItemSheet {
 
   /** @override */
   get template() {
-    const path = "systems/channel fear/templates/item";
+    const path = "systemsChannelFear/templates/item";
     // Return a single sheet for all item types.
     // return `${path}/item-sheet.html`;
 

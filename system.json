@@ -8,7 +8,7 @@
   "compatibleCoreVersion": "0.7.5",
   "templateVersion": 2,
   "author": "Rwanoux",
-  "esmodules": ["module/channel fear.js"],
+  "esmodules": ["moduleChannelFear.js"],
   "styles": ["css/channelFear.css"],
   "scripts": [],
   "packs": [],

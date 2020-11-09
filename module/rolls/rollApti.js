@@ -13,9 +13,9 @@ export async function rollAptitude(actor, apt) {
   console.log(actor);
   console.log(apt);
 
-  const rollAptiDialog = 'systems/channel fear/templates/rolls/rollApti-dialog.html';
+  const rollAptiDialog = 'systemsChannelFear/templates/rolls/rollApti-dialog.html';
   const rollAptiContent = await renderTemplate(rollAptiDialog, { diff: diff, actor: actor, apti: apti, ressources: ress, usedRess: 0 });
-  const rollResultTemplate = 'systems/channel fear/templates/rolls/rollApti-result.html';
+  const rollResultTemplate = 'systemsChannelFear/templates/rolls/rollApti-result.html';
 
 
   let aptiDialog = new Dialog({
