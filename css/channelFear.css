@@ -134,6 +134,11 @@ body {
   right: 30%;
 }
 
+input[type=text] {
+  color: white;
+  margin-left: 5%;
+}
+
 #logo::after {
   width: 150px;
   height: 50px;
@@ -202,6 +207,10 @@ body {
   background: rgba(0, 0, 0, 0.05);
   border: 2px groove #c9c7b8;
   color: wheat;
+}
+
+form button {
+  color: white;
 }
 
 #chat-log .info {
@@ -436,6 +445,7 @@ body {
   border: 1px solid #bbb;
   border-radius: 0;
   font-family: "Montserrat", "Arial", sans-serif;
+  color: black;
 }
 
 .channelfear .character-sheet .window-content div[contenteditable=true],
@@ -650,6 +660,11 @@ body {
 
 .channelfear input[type=number]:after {
   content: "" !important;
+}
+
+.channelfear input[type=text] {
+  color: black;
+  text-align: center;
 }
 
 .channelfear input.compt {

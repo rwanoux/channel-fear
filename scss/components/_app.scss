@@ -16,7 +16,11 @@ body {
   position: relative;
   right: 30%;
 }
-
+input[type=text] {
+  color:white;
+  margin-left: 5%;
+ 
+}
 #logo::after {
   width: 150px;
   height: 50px;
@@ -77,4 +81,7 @@ body {
   background: rgba(0, 0, 0, 0.05);
   border: 2px groove #c9c7b8;
   color: wheat;
+}
+form button {
+color:white;
 }

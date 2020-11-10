@@ -62,7 +62,7 @@
                     "label": "ressource"
                 },
                 "evolution":{
-                    "value": 6,
+                    "value": 0,
                     "label": "évolution"
                 }
 
@@ -83,9 +83,13 @@
             "weight": 0,
             "attributes": {}
         },
-        "armes": {},
+        "armes": {
+            "des":1,
+            "relances":0,
+            "description": ""
+
+        },
         "spécialité": {
-            "label": "",
             "aptitudeName": "",
             "aptitudeValue": 0,
             "relances": 0

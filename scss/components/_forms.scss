@@ -43,6 +43,7 @@
   border: 1px solid #bbb;
   border-radius: 0;
   font-family: "Montserrat", "Arial", sans-serif;
+  color:black
 }
 
 .character-sheet .window-content div[contenteditable=true],
@@ -245,6 +246,10 @@ input[type=number] {
 
 input[type=number]:after {
   content: "" !important;
+}
+input[type=text] {
+  color:black;
+  text-align: center;
 }
 input.compt{
   margin-left: 30%;

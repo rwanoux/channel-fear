@@ -21,7 +21,7 @@ export async function rollAptitude(actor, apt) {
     buttons: {
       one: {
         label: "jeter les dés",
-        callback: (html) => roll(html)
+        callback: (html) => roll(html, actor)
       },
       two: {
         label: "fermer",
@@ -34,9 +34,9 @@ export async function rollAptitude(actor, apt) {
   aptiDialog.render(true);
 
 
-  async function roll(html) {
+  async function roll(html, actor) {
     let diffRoll = html.find("#diff").val();
-    let ress = html.find("#usedRess").val();
+    let usedRess=html.find("#usedRess").val();
     let form = "";
     let reussite = false;
     let echec = false;
@@ -44,8 +44,8 @@ export async function rollAptitude(actor, apt) {
     let echecT = false;
 
     //ajout de ressources pour succès
-    if (ress) {
-      form = formula + "+" + ress.toString();
+    if (usedRess) {
+      form = formula + "+" + usedRess.toString();
     } else { form = formula };
     //lancé du jet
     let r = new Roll(form, { apti: aptDice });
@@ -60,10 +60,11 @@ export async function rollAptitude(actor, apt) {
     if (result == 0) { echec = false; echecT = true };
 
 let rollConfig={
+
   actor: actor,
   aptiName: apti,
   aptiDice: aptDice,
-  ressources: ress,
+  usedRess: usedRess,
   relances: relances,
   result: result,
   difficulte: diffRoll,

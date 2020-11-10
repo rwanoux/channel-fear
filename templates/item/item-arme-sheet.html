@@ -1,19 +1,20 @@
 <form class="{{cssClass}} bloque" autocomplete="off">
     <div class="bloque">
         <img class="item-image rot" src="{{item.img}}" data-edit="img" title="{{item.name}}" />
-        <label class="pastille">nom </label>
         <input name="name" class=" channelfear" type="text" value="{{item.name}}" placeholder="Name" />
     </div>
 
+    <div class="compteur ">
+        <label class="pastille">dés de dégats</label>
+        <input class="channelfear" type="number" name="data.type" value="{{data.des}}" data-dtype="Number" />
 
+
+        <label class="pastille">relance</label>
+        <input class="channelfear"type="number" name="data.weight" value="{{data.relances}}" data-dtype="Number" />
+    </div>
 
 
     <section class=" bloque">
-
-    
             {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
-      
-
-      
     </section>
 </form>

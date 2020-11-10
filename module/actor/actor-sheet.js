@@ -46,7 +46,7 @@ export class ChannelFearActorSheet extends ActorSheet {
     const actorData = sheetData.actor;
 
 
-
+return 
   }
 
   /* -------------------------------------------- */
@@ -96,14 +96,25 @@ export class ChannelFearActorSheet extends ActorSheet {
 
     // ----------rolls------------------
     html.find(".boutonApt").click(ev => {
+      
       let apt = ev.target.getAttribute("rollApti");
+      console.log(apt);
       let aptDice = data.aptitudes[apt].value;
-
       rollAptitude(actor,apt);
-
-   
     });
-
+    /*
+    html.find(".boutonSpe").click(ev => {
+     
+      let apt = ev.target.getAttribute("rollApti");
+       console.log(apt);
+     if (apt==="")
+       switch (apt){
+         case 
+       }
+       let aptDice = data.aptitudes.find(ap=>ap.label===apt);
+      rollAptitude(actor,apt);
+    });
+*/
 
   }
 
