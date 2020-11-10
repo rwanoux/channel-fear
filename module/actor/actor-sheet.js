@@ -13,8 +13,8 @@ export class ChannelFearActorSheet extends ActorSheet {
     return mergeObject(super.defaultOptions, {
       classes: ["channelfear", "sheet", "actor"],
       template: "systems/ChannelFear/templates/actor/actor-personnage-sheet.html",
-      width: 700,
-      height: 960,
+      width: 1200,
+      height: 740,
       tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description" }]
     });
   }
@@ -92,7 +92,9 @@ export class ChannelFearActorSheet extends ActorSheet {
         li.setAttribute("draggable", true);
         li.addEventListener("dragstart", handler, false);
       });
-    }
+    };
+
+    // ----------rolls------------------
     html.find(".boutonApt").click(ev => {
       let apt = ev.target.getAttribute("rollApti");
       let aptDice = data.aptitudes[apt].value;

@@ -1,51 +1,80 @@
-
 body {
-    width: 100vw;
-    height: 100vh;
-    margin: 0;
-    overflow: hidden;
-    background-image: url(../img/fondtemplate_channelfear.png);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    font-family: "Signika", "Palatino Linotype", serif;
-    font-size: 14px;
-    box-shadow: 0 0 50vw #000 inset;
-  }
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
+  background-image: url(../img/fondtemplate_channelfear.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  font-family: "Signika", "Palatino Linotype", serif;
+  font-size: 14px;
+  box-shadow: 0 0 50vw #000 inset;
+}
+
 #logo {
-    position: relative;
-    right: 30%;
-  }
-  
-  #logo::after {
-    width: 150px;
-    height: 50px;
-    background-image: url("../img/logochannel.png");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-  }
-  
+  position: relative;
+  right: 30%;
+}
+
+#logo::after {
+  width: 150px;
+  height: 50px;
+  background-image: url("../img/logochannel.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
 #sidebar {
-    -webkit-box-shadow: -27px 0px 52px 10px rgb(11, 17, 11);
-    -moz-box-shadow: -27px 0px 52px 10px gb(11, 17, 11);
-    box-shadow: -27px 0px 52px 10px gb(11, 17, 11);
-    background-image: url(../img/fondchat.jpg);
-    background-repeat: no-repeat;
-    background-position: top;
-    background-size: cover;
+  -webkit-box-shadow: -27px 0px 52px 10px rgb(11, 17, 11);
+  -moz-box-shadow: -27px 0px 52px 10px gb(11, 17, 11);
+  box-shadow: -27px 0px 52px 10px gb(11, 17, 11);
+  background-image: url(../img/fondchat.jpg);
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: cover;
+}
+
+#chat-log {
+  background-image: url(../img/fondchat.jpg);
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: cover;
+  border: 2px black solid;
+  list-style-position: inside;
+}
+
+#board {
+  box-shadow: -1px 2px 5px 1px rgba(0, 0, 0, 0.7), -1px 2px 100px rgba(255, 255, 255, 0.6) inset;
+}
+
+.window-app .window-content {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  background: url(../img/fondtemplate_channelfear.png) repeat;
+  padding: 8px;
+  color: #afada6;
+  overflow-y: auto;
+  overflow-x: hidden;
+  select{
+    color: #afada6;
+    option{
+      background-color: rgb(30, 36, 36);
+    }
+    option:hover{
+      background-color: rgb(58, 73, 73);
+    }
+
   }
+
   
-  #chat-log {
-    background-image: url(../img/fondchat.jpg);
-    background-repeat: no-repeat;
-    background-position: top;
-    background-size: cover;
-    border: 2px black solid;
-    list-style-position: inside;
-  }
-  
-  #board {
-    box-shadow: -1px 2px 5px 1px rgba(0, 0, 0, 0.7), -1px 2px 100px rgba(255, 255, 255, 0.6) inset;
-  }
-  
+}
+
+.dialog .dialog-buttons button {
+  background: rgba(0, 0, 0, 0.05);
+  border: 2px groove #c9c7b8;
+  color: wheat;
+}

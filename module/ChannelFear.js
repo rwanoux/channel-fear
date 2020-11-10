@@ -3,9 +3,11 @@ import { ChannelFearActor } from "./actor/actor.js";
 import { ChannelFearActorSheet } from "./actor/actor-sheet.js";
 import { ChannelFearItem } from "./item/item.js";
 import { ChannelFearItemSheet } from "./item/item-sheet.js";
-import {systemConfig}from "./config/config.js";
-Hooks.once('init', async function() {
-  CONFIG.debug.hooks=true;
+import { systemConfig } from "./config/config.js";
+Hooks.once('init', async function () {
+
+
+  CONFIG.debug.hooks = true;
   game.ChannelFear = {
     ChannelFearActor,
     ChannelFearItem,
@@ -33,7 +35,7 @@ Hooks.once('init', async function() {
   Items.registerSheet("ChannelFear", ChannelFearItemSheet, { makeDefault: true });
 
   // If you need to add Handlebars helpers, here are a few useful examples:
-  Handlebars.registerHelper('concat', function() {
+  Handlebars.registerHelper('concat', function () {
     var outStr = '';
     for (var arg in arguments) {
       if (typeof arguments[arg] != 'object') {
@@ -43,16 +45,25 @@ Hooks.once('init', async function() {
     return outStr;
   });
 
-  Handlebars.registerHelper('toLowerCase', function(str) {
+  Handlebars.registerHelper('toLowerCase', function (str) {
     return str.toLowerCase();
   });
 });
 
-Hooks.once("ready", async function() {
+Hooks.once("ready", async function () {
   // Wait to register hotbar drop hook on ready so that modules could register earlier if they want to
   Hooks.on("hotbarDrop", (bar, data, slot) => createChannelFearMacro(data, slot));
 });
 
+Hooks.on("preCreateActor", async function (actor) {
+  function changeImg(actor) {
+    let path = "systems/ChannelFear/img/icones/silhouette.png";
+    actor.img = path;
+    actor.token.data.img = path;
+    return actor;
+  }
+  changeImg(actor)
+})
 /* -------------------------------------------- */
 /*  Hotbar Macros                               */
 /* -------------------------------------------- */

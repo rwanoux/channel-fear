@@ -26,22 +26,22 @@
     </p>
     
     {{#if echec}}
-    <p class="echec">
+    <div class="echec">
         c'est un échec
-    </p>
+    </div>
     {{/if}}
     {{#if reussite}}
-    <p class="reussite">
+    <div class="reussite">
         c'est une réussite
-    </p>
+    </div>
     {{/if}}
     {{#if echecT}}
-    <p class="echec">
-        c'est un échec total (-1pt de resource)
-    </p>
+    <div class="echec">
+        c'est un échec total <p class="info">(-1pt de resource)</p>
+    </div>
     {{/if}}
     {{#if reussiteT}}
-    <p class="reussite">
-        c'est une reussite totale (+1pt de ressource)
-    </p>
+    <div class="reussite">
+        c'est une reussite totale <p class="info">(+1pt de resource)</p>
+    </div>
     {{/if}}

@@ -9,16 +9,13 @@ export async function rollAptitude(actor, apt) {
   let ress = actor.data.data.compteurs.ressource.value;
   let formula = "(@apti)d6x6cs>3";
 
-
-  console.log(actor);
-  console.log(apt);
-
   const rollAptiDialog = 'systems/ChannelFear/templates/rolls/rollApti-dialog.html';
   const rollAptiContent = await renderTemplate(rollAptiDialog, { diff: diff, actor: actor, apti: apti, ressources: ress, usedRess: 0 });
   const rollResultTemplate = 'systems/ChannelFear/templates/rolls/rollApti-result.html';
 
 
   let aptiDialog = new Dialog({
+  
     title: "jet d'aptitude ",
     content: rollAptiContent,
     buttons: {
@@ -62,21 +59,22 @@ export async function rollAptitude(actor, apt) {
     if (result < diffRoll) { echec = true };
     if (result == 0) { echec = false; echecT = true };
 
+let rollConfig={
+  actor: actor,
+  aptiName: apti,
+  aptiDice: aptDice,
+  ressources: ress,
+  relances: relances,
+  result: result,
+  difficulte: diffRoll,
+  reussite: reussite,
+  echec: echec,
+  reussiteT: reussiteT,
+  echecT: echecT
+}
+console.log(rollConfig);
 
-
-    const rollResultContent = await renderTemplate(rollResultTemplate, {
-      actor: actor,
-      aptiName: apti,
-      aptiDice: aptDice,
-      ressources: ress,
-      relances: relances,
-      result: result,
-      difficulte: diffRoll,
-      reussite: reussite,
-      echec: echec,
-      reussiteT: reussiteT,
-      echecT: echecT,
-    });
+    const rollResultContent = await renderTemplate(rollResultTemplate, rollConfig);
 
     r.toMessage({
       speaker: ChatMessage.getSpeaker({ actor: actor.name }),

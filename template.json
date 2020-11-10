@@ -88,8 +88,8 @@
             "label": "",
             "aptitudeName": "",
             "aptitudeValue": 0,
-            "relances": 0,
-            "description": "desc"
+            "relances": 0
+            
         }
     }
 }
