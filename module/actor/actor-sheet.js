@@ -12,7 +12,7 @@ export class ChannelFearActorSheet extends ActorSheet {
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
       classes: ["channelfear", "sheet", "actor"],
-      template: "systemsChannelFear/templates/actor/actor-personnage-sheet.html",
+      template: "systems/ChannelFear/templates/actor/actor-personnage-sheet.html",
       width: 700,
       height: 960,
       tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description" }]
