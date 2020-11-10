@@ -54,7 +54,7 @@ Hooks.once("ready", async function () {
   // Wait to register hotbar drop hook on ready so that modules could register earlier if they want to
   Hooks.on("hotbarDrop", (bar, data, slot) => createChannelFearMacro(data, slot));
 });
-
+/*
 Hooks.on("preCreateActor", async function (actor) {
   function changeImg(actor) {
     let path = "systems/ChannelFear/img/icones/silhouette.png";
@@ -64,6 +64,7 @@ Hooks.on("preCreateActor", async function (actor) {
   }
   changeImg(actor)
 })
+*/
 /* -------------------------------------------- */
 /*  Hotbar Macros                               */
 /* -------------------------------------------- */

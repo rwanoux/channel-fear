@@ -3,7 +3,7 @@
   "title": "Channel Fear",
   "description": 
   "The channel fear system for FoundryVTT! --FRENCH ONLY--",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "minimumCoreVersion": "0.7.5",
   "compatibleCoreVersion": "0.7.5",
   "templateVersion": 2,
@@ -11,7 +11,6 @@
   "esmodules": ["module/ChannelFear.js"],
   "styles": ["css/channelFear.css"],
   "scripts": [],
-  "packs": [],
   "languages": [
     {
       "lang": "fr",
@@ -19,6 +18,13 @@
       "path": "lang/fr.json"
     }
   ],
+  "packs": [{
+    "name": "pre-tires",
+    "label": "ChannelFear-prétirés",
+    "path": "packs/pre-tires.db",
+    "entity": "Actor",
+    "system": "ChannelFear"
+}],
   "socket": true,
   "gridDistance": 1,
   "gridUnits": "m",
