@@ -1,5 +1,5 @@
 import { rollAptitude } from "../rolls/rollApti.js"
-
+import { toChat } from "../rolls/toChat.js"
 
 
 /**
@@ -30,6 +30,20 @@ export class ChannelFearActorSheet extends ActorSheet {
     // Prepare items.
     if (this.actor.data.type == 'personnage') {
       this._prepareCharacterItems(data);
+    }
+
+    
+    if (this.actor.data.data.compteurs.santé.value > 2) {
+      data.data.diffSante = 0
+    };
+    if (this.actor.data.data.compteurs.santé.value === 2) {
+      data.data.diffSante = 1
+    };
+    if (this.actor.data.data.compteurs.santé.value === 1) {
+      data.data.diffSante = 2
+    }
+    if (this.actor.data.data.compteurs.santé.value === 0) {
+      agonise(this.actor);
     }
 
     return data;
@@ -114,18 +128,11 @@ export class ChannelFearActorSheet extends ActorSheet {
        let aptDice = data.aptitudes.find(ap=>ap.label===apt);
       rollAptitude(actor,apt);
     });
-*/
+  */
     //---------to chat
     html.find(".toChat").click(ev => {
-
       let content = ev.target.getAttribute("chatData");
-      const chatData = {
-        user: game.user._id,
-        speaker: game.user,
-        content: content,
-        type: CONST.CHAT_MESSAGE_TYPES.OTHER
-      };
-      ChatMessage.create(chatData, {});
+      toChat(content);
     });
   }
 
@@ -175,5 +182,8 @@ export class ChannelFearActorSheet extends ActorSheet {
       });
     }
   }
-
+ 
+}
+ function agonise(actor) {
+  toChat( actor.name + " agonise")
 }

@@ -11,11 +11,11 @@ export class ChannelFearActor extends Actor {
    */
   prepareData() {
     super.prepareData();
-    
+
     const actorData = this.data;
     const data = actorData.data;
     const flags = actorData.flags;
-   
+
 
     // Make separate methods for each Actor type (character, npc, etc.) to keep
     // things organized.
@@ -33,6 +33,12 @@ export class ChannelFearActor extends Actor {
       // Calculate the modifier using d20 rules.
       ability.mod = Math.floor((ability.value - 10) / 2);
     }
+
+    //checker le niv de santé pour appliquer les malus aux jets
+
   }
 
-}
+
+  
+
+};
