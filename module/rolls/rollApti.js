@@ -15,7 +15,7 @@ export async function rollAptitude(actor, apt) {
 
 
   let aptiDialog = new Dialog({
-  
+
     title: "jet d'aptitude ",
     content: rollAptiContent,
     buttons: {
@@ -36,8 +36,8 @@ export async function rollAptitude(actor, apt) {
 
   async function roll(html, actor) {
     let diffRoll = html.find("#diff").val();
-    let usedRess=html.find("#usedRess").val();
-    let form = "";
+    let usedRess = html.find("#usedRess").val();
+    let newRess = actor.data.data.compteurs.ressource.value;
     let reussite = false;
     let echec = false;
     let reussiteT = false;
@@ -45,42 +45,53 @@ export async function rollAptitude(actor, apt) {
 
     //ajout de ressources pour succès
     if (usedRess) {
-      form = formula + "+" + usedRess.toString();
-    } else { form = formula };
-    //lancé du jet
-    let r = new Roll(form, { apti: aptDice });
-    r.evaluate();
-    //interprétation
-    let nbDes = r.dice[0].results.length;
-    let relances = nbDes - parseInt(aptDice);
-    let result = parseInt(r.result);
-    if (result == diffRoll) { reussite = true };
-    if (result > diffRoll) { reussiteT = true };
-    if (result < diffRoll) { echec = true };
-    if (result == 0) { echec = false; echecT = true };
+      formula = formula + "+" + usedRess.toString();
+      newRess = actor.data.data.compteurs.ressource.value - usedRess;
+    };
 
-let rollConfig={
+    if (newRess < 0) {
+      ui.notifications.warn("pas assez de ressources")
+    } else {
+      //lancé du jet
+      let r = new Roll(formula, { apti: aptDice });
+      r.evaluate();
+      //interprétation
+      let nbDes = r.dice[0].results.length;
+      let relances = nbDes - parseInt(aptDice);
+      let result = parseInt(r.result);
+      if (result == diffRoll) { reussite = true };
+      if (result > diffRoll) {newRess=+1 ; reussiteT = true};
+      if (result < diffRoll) { echec = true };
+      if (result == 0) { echec = false;newRess=+1
+        echecT = true };
 
-  actor: actor,
-  aptiName: apti,
-  aptiDice: aptDice,
-  usedRess: usedRess,
-  relances: relances,
-  result: result,
-  difficulte: diffRoll,
-  reussite: reussite,
-  echec: echec,
-  reussiteT: reussiteT,
-  echecT: echecT
-}
-console.log(rollConfig);
+        console.log(newRess)
+      const myActor = game.actors.getName(actor.name);
+      myActor.update({ 'data.compteurs.ressource.value': newRess });
 
-    const rollResultContent = await renderTemplate(rollResultTemplate, rollConfig);
+      let rollConfig = {
 
-    r.toMessage({
-      speaker: ChatMessage.getSpeaker({ actor: actor.name }),
-      flavor: rollResultContent
-    });
+        actor: actor,
+        aptiName: apti,
+        aptiDice: aptDice,
+        usedRess: usedRess,
+        relances: relances,
+        result: result,
+        difficulte: diffRoll,
+        reussite: reussite,
+        echec: echec,
+        reussiteT: reussiteT,
+        echecT: echecT
+      }
+      console.log(rollConfig);
+
+      const rollResultContent = await renderTemplate(rollResultTemplate, rollConfig);
+
+      r.toMessage({
+        speaker: ChatMessage.getSpeaker({ actor: actor.name }),
+        flavor: rollResultContent
+      });
+    }
 
   }
 

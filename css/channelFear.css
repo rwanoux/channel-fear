@@ -496,9 +496,21 @@ form button {
 .channelfear .logo {
   border: none !important;
   width: auto;
-  height: 100px;
+  -webkit-transform: rotateX(5.72958deg) rotateY(-29.79381deg);
+  transform: rotateX(5.72958deg) rotateY(-29.79381deg);
   grid-column: 2 / 4;
   grid-row: 1;
+  -webkit-transition: all 2000ms cubic-bezier(0.42, 0, 0.335, 0.685) 200ms;
+  -o-transition: all 2000ms cubic-bezier(0.42, 0, 0.335, 0.685) 200ms;
+  transition: all 2000ms cubic-bezier(0.42, 0, 0.335, 0.685) 200ms;
+}
+
+.channelfear .logo:hover {
+  -webkit-transform: rotateX(-5.15662deg) rotateY(-16.04282deg);
+  transform: rotateX(-5.15662deg) rotateY(-16.04282deg);
+  -webkit-transition: all 2000ms cubic-bezier(0.42, 0, 0.335, 0.685) 200ms;
+  -o-transition: all 2000ms cubic-bezier(0.42, 0, 0.335, 0.685) 200ms;
+  transition: all 2000ms cubic-bezier(0.42, 0, 0.335, 0.685) 200ms;
 }
 
 .channelfear .tel {
@@ -576,8 +588,11 @@ form button {
 }
 
 .channelfear .compteur {
-  grid-column: 6/7;
-  grid-row: 3;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  grid-column: 4/8;
+  grid-row: 1;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
@@ -586,7 +601,10 @@ form button {
 }
 
 .channelfear .compteur .titre1 {
-  height: 100%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  width: 150px;
 }
 
 .channelfear .compteur .titre1 input {

@@ -1,10 +1,7 @@
 {
 	"folders": [
 		{
-			"path": "./"
-		},
-		{
-			"path": "../../modules/0day-fixes"
+			"path": "."
 		}
 	],
 	"settings": {}

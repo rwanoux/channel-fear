@@ -1,4 +1,4 @@
-import {rollAptitude} from"../rolls/rollApti.js"
+import { rollAptitude } from "../rolls/rollApti.js"
 
 
 
@@ -46,7 +46,7 @@ export class ChannelFearActorSheet extends ActorSheet {
     const actorData = sheetData.actor;
 
 
-return 
+    return
   }
 
   /* -------------------------------------------- */
@@ -56,7 +56,7 @@ return
 
 
     let data = this.actor.data.data;
-    let actor=this.actor;
+    let actor = this.actor;
 
 
     super.activateListeners(html);
@@ -96,11 +96,11 @@ return
 
     // ----------rolls------------------
     html.find(".boutonApt").click(ev => {
-      
+
       let apt = ev.target.getAttribute("rollApti");
       console.log(apt);
       let aptDice = data.aptitudes[apt].value;
-      rollAptitude(actor,apt);
+      rollAptitude(actor, apt);
     });
     /*
     html.find(".boutonSpe").click(ev => {
@@ -115,7 +115,18 @@ return
       rollAptitude(actor,apt);
     });
 */
+    //---------to chat
+    html.find(".toChat").click(ev => {
 
+      let content = ev.target.getAttribute("chatData");
+      const chatData = {
+        user: game.user._id,
+        speaker: game.user,
+        content: content,
+        type: CONST.CHAT_MESSAGE_TYPES.OTHER
+      };
+      ChatMessage.create(chatData, {});
+    });
   }
 
   /**

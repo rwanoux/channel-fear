@@ -9,16 +9,16 @@
                 placeholder="Name" />
         </div>
         <div>
-            <p class="  pastille">profil</p><input class="channelfear" type="text" name="data.informations.profil"
+            <p class="pastille">profil</p><input class="channelfear" type="text" name="data.informations.profil"
                 value="{{data.informations.profil}}" />
         </div>
         <div>
-            <div class="titre2">mots-clefs</div>
+            <div class="titre2 toChat" chatData="{{{data.informations.mots-clefs}}}" title="clickez pour envoyer dans le chat"> mots-clefs</div>
             <div class="property-textarea" contenteditable="true" data-edit="data.informations.mots-clefs">
                 {{{data.informations.mots-clefs}}}</div>
         </div>
         <div>
-            <div class="titre2">déformation professionnelle</div>
+            <div class="titre2 toChat defPro" chatData="{{{data.informations.def_pro}}}" title="clickez pour envoyer dans le chat">déformation professionnelle</div>
             <div class="property-textarea" contenteditable="true" data-edit="data.informations.def_pro">
                 {{{data.informations.def_pro}}}</div>
         </div>
@@ -101,19 +101,26 @@
         <div class="titre2">rappel des règles</div>
         <div class="inbox">
             <p>Une action facile à exécuter ne requiert aucun jet de dés : le personnage réussit automatiquement son
-            action. Par contre, si le meneur estime que l’action du personnage comporte un risque, que le résultat n’est
-            pas automatiquement évident, il demande au joueur de lancer les dés.</p>
+                action. Par contre, si le meneur estime que l’action du personnage comporte un risque, que le résultat
+                n’est
+                pas automatiquement évident, il demande au joueur de lancer les dés.</p>
             <p> Le meneur indique quelle aptitudes est liée à l’action désirée, le joueur lance
-            autant de dés que le niveau de son personnage dans l’aptitudes correspondante et comptabilise le nombre de
-            réussites.</p>
-            <p>• Chaque dé affichant un résultat de 1, 2 ou 3 est un échec. • Chaque dé affichant un résultat de 4, 5 ou 6 est une
-            réussite. Chaque dé affichant un 6 est à relancer pour obtenir une ou plusieurs réussites supplémentaires.
-            DIFFICULTÉ Suivant les circonstances, une action peut être plus ou moins difficile à réussir.</p>
-             
-            <p>Pour simuler ces difficultés diverses, certains jets requièrent l’obtention de plus ou moins de réussites. C’est le meneur qui détermine la difficulté en
-            fonction des paramètres qu’il juge pertinents (en plein jour, en pleine nuit, en étant au-dessus de l’adversaire). Le nombre minimum de
-            réussites à réaliser ne peut jamais être inférieur à 1 (ou l’action est forcément réussie) ni être supérieur
-            à 4 (ou l’action est forcément ratée).</p>
+                autant de dés que le niveau de son personnage dans l’aptitudes correspondante et comptabilise le nombre
+                de
+                réussites.</p>
+            <p>• Chaque dé affichant un résultat de 1, 2 ou 3 est un échec. • Chaque dé affichant un résultat de 4, 5 ou
+                6 est une
+                réussite. Chaque dé affichant un 6 est à relancer pour obtenir une ou plusieurs réussites
+                supplémentaires.
+                DIFFICULTÉ Suivant les circonstances, une action peut être plus ou moins difficile à réussir.</p>
+
+            <p>Pour simuler ces difficultés diverses, certains jets requièrent l’obtention de plus ou moins de
+                réussites. C’est le meneur qui détermine la difficulté en
+                fonction des paramètres qu’il juge pertinents (en plein jour, en pleine nuit, en étant au-dessus de
+                l’adversaire). Le nombre minimum de
+                réussites à réaliser ne peut jamais être inférieur à 1 (ou l’action est forcément réussie) ni être
+                supérieur
+                à 4 (ou l’action est forcément ratée).</p>
 
         </div>
     </div>
@@ -122,15 +129,18 @@
         <ol class="items-list">
             {{#each actor.items as |item id|}}
             {{#unless isSpé}}
-            <li class="item flexrow" data-item-id="{{item._id}}">
-                <img src="{{item.img}}" title="{{item.name}}" width="24" height="24" />
-                <h4 class="item-name">{{item.name}}</h4>
-                <div class="item-controls">
-                    <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
-                    <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
-                </div>
-            </li>
-
+            <div class="bloque">
+                <li class="item  flexrow" data-item-id="{{item._id}}">
+                    <img src="{{item.img}}" title="{{item.name}}" width="24" height="24" />
+                    <h4 class="item-name">{{item.name}}</h4>
+                    <div class="item-controls">
+                        <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+                        <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+                    </div>
+                    
+                </li>
+                {{{item.data.description}}}
+            </div>
             {{/unless}} {{/each}}
         </ol>
     </div>

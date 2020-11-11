@@ -92,9 +92,22 @@
 .logo {
   border: none!important;
   width: auto;
-  height: 100px;
+  -webkit-transform: rotateX(5.729577951308233deg) rotateY(-29.79380534680281deg);
+  transform: rotateX(5.729577951308233deg) rotateY(-29.79380534680281deg);
   grid-column: 2 / 4;
   grid-row: 1;
+  -webkit-transition: all 2000ms cubic-bezier(0.42, 0, 0.335, 0.685) 200ms;
+-moz-transition: all 2000ms cubic-bezier(0.42, 0, 0.335, 0.685) 200ms;
+-o-transition: all 2000ms cubic-bezier(0.42, 0, 0.335, 0.685) 200ms;
+transition: all 2000ms cubic-bezier(0.42, 0, 0.335, 0.685) 200ms;
+}
+.logo:hover{
+  -webkit-transform: rotateX(-5.15662015617741deg) rotateY(-16.04281826366305deg);
+  transform: rotateX(-5.15662015617741deg) rotateY(-16.04281826366305deg);
+  -webkit-transition: all 2000ms cubic-bezier(0.42, 0, 0.335, 0.685) 200ms;
+-moz-transition: all 2000ms cubic-bezier(0.42, 0, 0.335, 0.685) 200ms;
+-o-transition: all 2000ms cubic-bezier(0.42, 0, 0.335, 0.685) 200ms;
+transition: all 2000ms cubic-bezier(0.42, 0, 0.335, 0.685) 200ms;
 }
 
 .tel {
@@ -165,11 +178,13 @@
 }
 
 .compteur {
-  grid-column: 6/7;
-  grid-row:3;
+  display: inline-flex;
+  grid-column: 4/8;
+  grid-row:1;
   align-items: center;
   .titre1{
-    height:100%;
+    height: fit-content;
+    width: 150px;
     input{
       align-self: end;
       background-color: rgba(187, 187, 187, 0.863);
