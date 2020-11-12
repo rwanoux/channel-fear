@@ -4,15 +4,16 @@
     font-style: italic;
 
   }
+   span.resultat {
+      border: 1px solid black;
+      padding: 5px;
+    }
 
   .resultat {
     font-size: 18px;
     text-align: end;
-
-    span {
-      border: 1px solid black;
-      padding: 5px;
-    }
+margin: 5px;
+ 
   }
 
   .reussite {

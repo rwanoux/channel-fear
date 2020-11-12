@@ -26,7 +26,27 @@ export class ChannelFearActor extends Actor {
    * Prepare Character type specific data
    */
   _prepareCharacterData(actorData) {
+
+    
     const data = actorData.data;
+
+   
+      this._prepareCharacterItems(data);
+      
+      if (data.data.compteurs.santé.value > 2) {
+        data.data.diffSante = 0
+      };
+      if (data.data.compteurs.santé.value === 2) {
+        data.data.diffSante = 1
+      };
+      if (data.data.compteurs.santé.value === 1) {
+        data.data.diffSante = 2
+      }
+      if (data.data.compteurs.santé.value === 0) {
+        agonise(this.actor);
+      }
+  function agonise(){};
+
     // Make modifications to data here. For example:
     // Loop through ability scores, and add their modifiers to our sheet output.
     for (let [key, ability] of Object.entries(data.abilities)) {

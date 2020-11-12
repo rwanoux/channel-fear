@@ -55,18 +55,25 @@
             "compteurs": {
                 "santé": {
                     "value": 6,
-                    "label": "santé"
+                    "label": "santé",
+                    "max":6,
+                    "min":0
                 },
                 "ressource":{
                     "value": 6,
-                    "label": "ressource"
+                    "label": "ressource",
+                    "max":6,
+                    "min":0
                 },
                 "evolution":{
                     "value": 0,
-                    "label": "évolution"
+                    "label": "évolution",
+                    "max":20,
+                    "min":0
                 }
 
             },
+
             "notes": {
                 "label": "notes",
                 "value": ""
@@ -76,12 +83,10 @@
 
     },
     "Item": {
-        "types": ["item", "arme", "spécialité"],
-        "item": {
+        "types": ["objet", "arme", "spécialité"],
+        "objet": {
             "description": "",
-            "quantity": 1,
-            "weight": 0,
-            "attributes": {}
+            "quantity": 1
         },
         "armes": {
             "des":1,

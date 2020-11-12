@@ -78,7 +78,6 @@
             <h1 class="titre1">{{compt.label}}
                 <p><input type="number" name="data.compteurs.{{id}}.value" value="{{compt.value}}" data-dtype="Number">
                 </p>
-
             </h1>
         </div>
         {{/each}}
@@ -131,7 +130,7 @@
             {{#unless isSpé}}
             <div class="bloque">
                 <li class="item  flexrow" data-item-id="{{item._id}}">
-                    <img src="{{item.img}}" title="{{item.name}}" width="24" height="24" />
+                    <img src="{{item.img}}" title="{{item.name}}" style="width:18px" />
                     <h4 class="item-name">{{item.name}}</h4>
                     <div class="item-controls">
                         <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>

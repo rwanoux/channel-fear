@@ -1,47 +1,39 @@
-
-<div >
-    <h1 class="titre1">{{actor.name}} </h1>
+<div>
     <p class="info">
-       jet de {{aptiName}} avec {{aptiDice}} dés
+        jet de {{aptiName}} avec {{aptiDice}} dés
     </p>
     {{#if relances}}
     <p class="info">
         {{relances}} relance(s) grâce au 6
-       
-    </p class="info">
-     {{/if}}
-     {{#if usedRess}}
-     <p class="info">
-         {{usedRess}} points de ressources ont été convertis en succès automatiques
-        
-     </p>
-      {{/if}}
-      
-      <p class="resultat">
-          <span>{{result}}</span> réussites au total
-         
-      </p>
-      <p class="info">
-          la difficulté demandait {{difficulte}} réussite(s)</p>
-    </p>
-    
-    {{#if echec}}
-    <div class="echec">
-        c'est un échec
-    </div>
-    {{/if}}
-    {{#if reussite}}
-    <div class="reussite">
-        c'est une réussite
-    </div>
-    {{/if}}
-    {{#if echecT}}
-    <div class="echec">
-        c'est un échec total <p class="info">(-1pt de resource)</p>
-    </div>
-    {{/if}}
-    {{#if reussiteT}}
-    <div class="reussite">
-        c'est une reussite totale <p class="info">(+1pt de resource)</p>
-    </div>
-    {{/if}}
+</p>
+</div>
+<div class="info flexrow">
+{{/if}}
+
+    <span class="resultat">{{result}} </span> succès
+
+
+<span class="info right">
+    difficulté {{difficulte}}
+</span>
+</div>
+{{#if echec}}
+<div class="echec">
+    c'est un échec
+</div>
+{{/if}}
+{{#if reussite}}
+<div class="reussite">
+    c'est une réussite
+</div>
+{{/if}}
+{{#if echecT}}
+<div class="echec">
+    c'est un échec total <p class="info">(-1pt de resource)</p>
+</div>
+{{/if}}
+{{#if reussiteT}}
+<div class="reussite">
+    c'est une reussite totale <p class="info">(+1pt de resource)</p>
+</div>
+{{/if}}
