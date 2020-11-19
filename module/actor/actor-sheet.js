@@ -25,26 +25,11 @@ export class ChannelFearActorSheet extends ActorSheet {
   getData() {
     const data = super.getData();
     data.dtypes = ["String", "Number", "Boolean"];
-
-
     // Prepare items.
     if (this.actor.data.type == 'personnage') {
       this._prepareCharacterItems(data);
     }
 
-    
-    if (this.actor.data.data.compteurs.santé.value > 2) {
-      data.data.diffSante = 0
-    };
-    if (this.actor.data.data.compteurs.santé.value === 2) {
-      data.data.diffSante = 1
-    };
-    if (this.actor.data.data.compteurs.santé.value === 1) {
-      data.data.diffSante = 2
-    }
-    if (this.actor.data.data.compteurs.santé.value === 0) {
-      agonise(this.actor);
-    }
 
     return data;
   }
@@ -116,25 +101,15 @@ export class ChannelFearActorSheet extends ActorSheet {
       let aptDice = data.aptitudes[apt].value;
       rollAptitude(actor, apt);
     });
-    /*
-    html.find(".boutonSpe").click(ev => {
-     
-      let apt = ev.target.getAttribute("rollApti");
-       console.log(apt);
-     if (apt==="")
-       switch (apt){
-         case 
-       }
-       let aptDice = data.aptitudes.find(ap=>ap.label===apt);
-      rollAptitude(actor,apt);
-    });
-  */
+
+
     //---------to chat
     html.find(".toChat").click(ev => {
       let content = ev.target.getAttribute("chatData");
       toChat(content);
     });
   }
+
 
   /**
    * Handle creating a new Owned Item for the actor using initial data defined in the HTML dataset
@@ -143,9 +118,9 @@ export class ChannelFearActorSheet extends ActorSheet {
    */
   _onItemCreate(event) {
     event.preventDefault();
-    const header = event.currentTarget;
+    //const header = event.currentTarget.previousSiblingElement.innerText;
     // Get the type of item to create.
-    const type = header.dataset.type;
+    const type = event.currentTarget.previousSiblingElement.innerText;
     // Grab any data associated with this control.
     const data = duplicate(header.dataset);
     // Initialize a default name.
