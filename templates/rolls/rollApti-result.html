@@ -1,4 +1,4 @@
-<div>
+<div class="titre1">
     <p class="info">
         jet de {{aptiName}} avec {{aptiDice}} dés
     </p>
@@ -6,32 +6,43 @@
     <p class="info">
         {{relances}} relance(s) grâce au 6
     </p>
-</div>
-<div class="info flexrow">
     {{/if}}
-
-    <span class="resultat left">{{result}} succès</span>
-    <span class="info right"> difficulté {{difficulte}}</span>
-       
-    
 </div>
+<div class="bloque">
+    <span class="resultat left">{{result}} </span><span class="left">succès</span>
+    <span class=" right"> difficulté {{difficulte}}</span>
+</div>
+<div class="bloque diceRes">
+    {{#each dicesResults as |d|}}
+            <div class=" resultat dice{{d}}{{#if ../relanceDispo}} rerollable{{/if}} ">{{d}}</div>
+    {{/each}}
+</div>
+
+{{#if relanceDispo}}
+<div class="bloque ">
+
+    <span class="info">vous pouvez relancer {{relanceDispo}} dés</span>
+
+</div>
+{{/if}}
+
 {{#if echec}}
-<div class="echec">
+<div class="bloque echec">
     c'est un échec
 </div>
 {{/if}}
 {{#if reussite}}
-<div class="reussite">
+<div class="bloque reussite">
     c'est une réussite
 </div>
 {{/if}}
 {{#if echecT}}
-<div class="echec">
+<div class="bloque echec">
     c'est un échec total <p class="info">(-1pt de resource)</p>
 </div>
 {{/if}}
 {{#if reussiteT}}
-<div class="reussite">
+<div class="bloque reussite">
     c'est une reussite totale <p class="info">(+1pt de resource)</p>
 </div>
 {{/if}}

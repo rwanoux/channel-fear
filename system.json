@@ -3,9 +3,9 @@
   "title": "Channel Fear",
   "description": 
   "The channel fear system for FoundryVTT! --FRENCH ONLY--",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "minimumCoreVersion": "0.7.5",
-  "compatibleCoreVersion": "0.7.5",
+  "compatibleCoreVersion": "0.7.7",
   "templateVersion": 2,
   "author": "Rwanoux",
   "esmodules": ["module/ChannelFear.js"],

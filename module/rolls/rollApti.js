@@ -1,6 +1,6 @@
 import { systemConfig } from "../config/config.js";
 
-export async function rollAptitude(actor, apt) {
+export async function rollAptitude(actor, apt, relanceDispo) {
 
 
   //----------configs
@@ -45,16 +45,22 @@ export async function rollAptitude(actor, apt) {
     //lancé du jet
     let r = new Roll(formula, { apti: aptDice });
     r.evaluate();
+    console.log(r);
     //interprétation
     let nbDes = r.dice[0].results.length;
+    let dicesResults=[];
     let relances = nbDes - parseInt(aptDice);
     let result = parseInt(r.result);
-    if (result == diffRoll) { reussite = true };
-    if (result > diffRoll) { newRess++; reussiteT = true };
-    if (result < diffRoll) { echec = true };
-    if (result == 0) { echec = false; newRess--; echecT = true };
-
+    if (result == diffRoll) { reussite = true; }
+    if (result > diffRoll) { newRess++; reussiteT = true; }
+    if (result < diffRoll) { echec = true; }
+    if (result == 0) { echec = false; newRess--; echecT = true; }
+    
+    for (let res of r.terms[0].results ){
+      dicesResults.push(res.result);
+    }
     let rollConfig = {
+      dicesResults:dicesResults,
       actor: actor,
       aptiName: apti,
       aptiDice: aptDice,
@@ -64,13 +70,17 @@ export async function rollAptitude(actor, apt) {
       reussite: reussite,
       echec: echec,
       reussiteT: reussiteT,
-      echecT: echecT
-    }
-
+      echecT: echecT,
+      relanceDispo:relanceDispo
+    };
+    console.log("----------------------------"+relanceDispo);
     //envoyer le resultat dans le chat
     const rollResultContent = await renderTemplate(rollResultTemplate, rollConfig);
     r.toMessage({
       speaker: ChatMessage.getSpeaker({ actor: actor.name }),
+      flags:{
+        channelFear:"roll"
+      },
       flavor: rollResultContent
     });
 

@@ -54,7 +54,7 @@
                 <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
                 <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
             </div>
-            <button type="button" class="boutonSpe roll" rollApti="{{item.data.aptitudeName}}">{{item.name}}</button>
+            <button type="button" class="boutonSpe roll" rollApti="{{item.data.aptitudeName}}" rollRelances="{{item.data.relances}}">{{item.name}}</button>
             <div>
                 <span class="pastille">{{item.data.aptitudeName}}</span>
                 <span>{{item.data.relances}} relance(s)</span>
@@ -76,7 +76,8 @@
         {{#each data.compteurs as |compt id|}}
         <div>
             <h1 class="titre1">{{compt.label}}
-                <p><input type="number" name="data.compteurs.{{id}}.value" value="{{compt.value}}" data-dtype="Number">
+                <p>
+                    <input type="number" id="data.compteurs.{{id}}.value" min="0" max="6" value="{{compt.value}}" data-dtype="Number">
                 </p>
             </h1>
         </div>

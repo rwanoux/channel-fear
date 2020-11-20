@@ -1,5 +1,9 @@
-import { rollAptitude } from "../rolls/rollApti.js"
-import { toChat } from "../rolls/toChat.js"
+import {
+  rollAptitude
+} from "../rolls/rollApti.js";
+import {
+  toChat
+} from "../rolls/toChat.js";
 
 
 /**
@@ -15,7 +19,11 @@ export class ChannelFearActorSheet extends ActorSheet {
       template: "systems/ChannelFear/templates/actor/actor-personnage-sheet.html",
       width: 1200,
       height: 740,
-      tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description" }]
+      tabs: [{
+        navSelector: ".sheet-tabs",
+        contentSelector: ".sheet-body",
+        initial: "description"
+      }]
     });
   }
 
@@ -31,6 +39,14 @@ export class ChannelFearActorSheet extends ActorSheet {
     }
 
 
+
+    //max 6 pour santé et ressources
+    if (data.data.compteurs.santé.value > 6) {
+      data.data.compteurs.santé.value = 6;
+    }
+    if (data.data.compteurs.ressource.value > 6) {
+      data.data.compteurs.ressource.value = 6;
+    }
     return data;
   }
 
@@ -45,7 +61,7 @@ export class ChannelFearActorSheet extends ActorSheet {
     const actorData = sheetData.actor;
 
 
-    return
+    return;
   }
 
   /* -------------------------------------------- */
@@ -91,7 +107,9 @@ export class ChannelFearActorSheet extends ActorSheet {
         li.setAttribute("draggable", true);
         li.addEventListener("dragstart", handler, false);
       });
-    };
+    }
+    //------santé et ressource max 6
+
 
     // ----------rolls------------------
     html.find(".boutonApt").click(ev => {
@@ -102,6 +120,13 @@ export class ChannelFearActorSheet extends ActorSheet {
       rollAptitude(actor, apt);
     });
 
+    html.find(".boutonSpe").click(ev => {
+      let apt = ev.target.getAttribute("rollApti");
+      console.log(apt);
+      let aptDice = data.aptitudes[apt].value;
+      let relanceDispo = ev.target.getAttribute("rollRelances");
+      rollAptitude(actor, apt, relanceDispo);
+    });
 
     //---------to chat
     html.find(".toChat").click(ev => {
@@ -152,13 +177,16 @@ export class ChannelFearActorSheet extends ActorSheet {
       let roll = new Roll(dataset.roll, this.actor.data.data);
       let label = dataset.label ? `Rolling ${dataset.label}` : '';
       roll.roll().toMessage({
-        speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+        speaker: ChatMessage.getSpeaker({
+          actor: this.actor
+        }),
         flavor: label
       });
     }
   }
- 
+
 }
- function agonise(actor) {
-  toChat( actor.name + " agonise")
+
+function agonise(actor) {
+  toChat(actor.name + " agonise");
 }

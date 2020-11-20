@@ -1,18 +1,91 @@
+@keyframes roll {
+
+  from {
+    -webkit-transform: rotateX(4.583662361046586deg) rotateY(-1.7188733853924696deg)   ;
+    transform: rotateX(4.583662361046586deg) rotateY(-1.7188733853924696deg)   ;
+    -webkit-transform-origin: 50% 50% 0;
+    transform-origin: 50% 50% 0;
+  }
+  33% {
+    -webkit-transform: rotateX(-6.875493541569878deg) rotateY(-50.99324376664327deg)   ;
+    transform: rotateX(-6.875493541569878deg) rotateY(-50.99324376664327deg)   ;
+    -webkit-transform-origin: 50% 50% 0;
+    transform-origin: 50% 50% 0;
+  }
+  66% {
+    -webkit-transform: rotateX(-17.76169164905552deg) rotateY(9.740282517223996deg)   ;
+    transform: rotateX(-17.76169164905552deg) rotateY(9.740282517223996deg)   ;
+    -webkit-transform-origin: 50% 50% 0;
+    transform-origin: 50% 50% 0;
+  }
+
+  to {
+    -webkit-transform: rotateX(-46.40958140559668deg) rotateY(30.36676314193363deg)   ;
+    transform: rotateX(-46.40958140559668deg) rotateY(30.36676314193363deg)   ;
+    -webkit-transform-origin: 50% 50% 0;
+    transform-origin: 50% 50% 0;
+  }
+}
+
 #chat-log {
+
+
   .info {
     font-size: 16px;
     font-style: italic;
 
   }
-   span.resultat {
-      border: 1px solid black;
-      padding: 5px;
-    }
+
+  
+
+  .rerollable:hover {
+    animation-duration: 0.3s;
+  animation-name: roll;
+  }
+
+
+  span.resultat,
+  div.resultat {
+display: inline-block;
+    line-height: 35px;
+    height:35px;
+    width:35px;
+
+    padding: 5px;
+    text-align: center;
+  }
+  
+
+  div.resultat.dice1,
+  div.resultat.dice2,
+  div.resultat.dice3 {
+    box-shadow: 3px 3px 5px rgb(153, 90, 90);
+    background-color: lightcoral;
+  }
+
+  div.resultat.dice4,
+  div.resultat.dice5 {
+    box-shadow: 3px 3px 5px rgb(108, 144, 108);
+    background-color: lightgreen;
+  }
+
+  div.resultat.dice6 {
+    box-shadow: 3px 3px 5px rgb(94, 100, 94);
+    background-color: rgb(78, 238, 78);
+  }
 
   .resultat {
     font-size: 18px;
-margin: 5px
- 
+    margin: 5px;
+    width: 20px;
+    height: 20px;
+    margin: 10px;
+
+  }
+
+  .diceRes {
+
+    line-height: 40px;
   }
 
   .reussite {
