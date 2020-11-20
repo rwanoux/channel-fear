@@ -37,7 +37,7 @@ export async function rollAptitude(actor, apt, relanceDispo) {
 //----------------------------------------
   async function roll(html, actor) {
     let diffRoll = html.find("#diff").val();
-    let newRess = parseInt(actor.data.data.compteurs.ressource.value);
+    let newRess = actor.data.data.compteurs.ressource.value;
     let reussite = false;
     let echec = false;
     let reussiteT = false;
@@ -59,6 +59,7 @@ export async function rollAptitude(actor, apt, relanceDispo) {
     for (let res of r.terms[0].results ){
       dicesResults.push(res.result);
     }
+
     let rollConfig = {
       dicesResults:dicesResults,
       actor: actor,
@@ -73,9 +74,12 @@ export async function rollAptitude(actor, apt, relanceDispo) {
       echecT: echecT,
       relanceDispo:relanceDispo
     };
-    console.log("----------------------------"+relanceDispo);
+    let targetActor=game.actors.getName(actor.name);
+    console.log(targetActor);
+      await targetActor.update({ "data.compteurs.ressource.value": newRess });
+      console.log(targetActor);
     //envoyer le resultat dans le chat
-    const rollResultContent = await renderTemplate(rollResultTemplate, rollConfig);
+    const rollResultContent =  await renderTemplate(rollResultTemplate, rollConfig);
     r.toMessage({
       speaker: ChatMessage.getSpeaker({ actor: actor.name }),
       flags:{
@@ -85,9 +89,8 @@ export async function rollAptitude(actor, apt, relanceDispo) {
     });
 
     //updater la ressource si succes total ou echec total
-    let myActor = game.actors.getName(actor.name);
-    await myActor.update({ "data.compteurs.ressource.value": newRess });
-
+    
+   
   }
 
 

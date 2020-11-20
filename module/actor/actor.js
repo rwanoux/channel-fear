@@ -29,15 +29,15 @@ export class ChannelFearActor extends Actor {
 
     let data = actorData;
 
-
+//checker le niv de santé pour appliquer les malus aux jets
       if (data.data.compteurs.santé.value > 2) {
-        data.data.diffSante = 0
-      };
+        data.data.diffSante = 0;
+      }
       if (data.data.compteurs.santé.value === 2) {
-        data.data.diffSante = 1
-      };
+        data.data.diffSante = 1;
+      }
       if (data.data.compteurs.santé.value === 1) {
-        data.data.diffSante = 2
+        data.data.diffSante = 2;
       }
       if (data.data.compteurs.santé.value === 0) {
         console.log("aaaaaaaaaaaaaaaaaarrrrrrrrrrrrrrrggggggggggg");
@@ -48,11 +48,11 @@ export class ChannelFearActor extends Actor {
     // Loop through ability scores, and add their modifiers to our sheet output.
  
 
-    //checker le niv de santé pour appliquer les malus aux jets
+    return data;
 
   }
 
 
   
 
-};
+}
