@@ -1,6 +1,6 @@
 <div class="titre1">
     <p class="info">
-        jet de {{aptiName}} avec {{aptiDice}} dés
+        jet de {{aptiName}}{{#if spe}} / {{spe}} {{/if}} avec {{aptiDice}} dés
     </p>
     {{#if relances}}
     <p class="info">
@@ -12,11 +12,11 @@
     <span class="resultat left">{{result}} </span><span class="left">succès</span>
     <span class=" right"> difficulté {{difficulte}}</span>
 </div>
-<div class="bloque diceRes">
+<ul class="dice-rolls flexrow">
     {{#each dicesResults as |d|}}
-            <div class=" resultat dice{{d}}{{#if ../relanceDispo}} rerollable{{/if}} ">{{d}}</div>
+            <li class=" die d6 dice{{d}}{{#if ../relanceDispo}} rerollable{{/if}} ">{{d}}</div>
     {{/each}}
-</div>
+</ul >
 
 {{#if relanceDispo}}
 <div class="bloque ">

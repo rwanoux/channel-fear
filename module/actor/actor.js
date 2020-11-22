@@ -19,7 +19,8 @@ export class ChannelFearActor extends Actor {
 
     // Make separate methods for each Actor type (character, npc, etc.) to keep
     // things organized.
-    if (actorData.type === 'character') this._prepareCharacterData(actorData);
+    if (actorData.type === 'personnage') this._prepareCharacterData(actorData);
+  return actorData;
   }
 
   /**
@@ -42,7 +43,15 @@ export class ChannelFearActor extends Actor {
       if (data.data.compteurs.santé.value === 0) {
         console.log("aaaaaaaaaaaaaaaaaarrrrrrrrrrrrrrrggggggggggg");
       }
-  
+
+      //---brider les compteurs
+
+      if (data.data.compteurs.santé.value >6) {
+        data.data.compteurs.santé.value =6;
+      }
+      if (data.data.compteurs.ressource.value >6) {
+        data.data.compteurs.ressource.value =6;
+      }
 
     // Make modifications to data here. For example:
     // Loop through ability scores, and add their modifiers to our sheet output.

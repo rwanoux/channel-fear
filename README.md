@@ -6,6 +6,11 @@ implémenter les jets de spécialités avec relances,
 rendre le tout plus joli
 macros des items armes
 
+### v0.0.3
+
+correction de l'input des compteurs santé/ressource/évolution
+affichage direct de tous les résultats de dés.
+
 ### v0.0.2
 
 correction de path qui rendait tous les scripts non-fonctionnels
