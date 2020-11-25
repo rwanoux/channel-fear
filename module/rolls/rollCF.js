@@ -72,7 +72,7 @@ if (apt==="degats"){
     let r = new Roll(formula, {
       apti: aptDice
     });
-    r.evaluate();
+    r.roll();
     console.log(r);
     //interprétation
     let nbDes = r.dice[0].results.length;
@@ -117,6 +117,8 @@ if (apt==="degats"){
     };
 
 
+  
+    
 
     //envoyer le resultat dans le chat
     const rollResultContent = await renderTemplate(rollResultTemplate, rollConfig);
@@ -127,11 +129,11 @@ if (apt==="degats"){
       flags: {
         channelFear: "roll"
       },
-      flavor: rollResultContent
+      content: rollResultContent,
     });
 
     //updater la ressource si succes total ou echec total
-
+    ressources(actor,newRess)
 
   }
   
