@@ -1,9 +1,22 @@
 // Import Modules
-import { ChannelFearActor } from "./actor/actor.js";
-import { ChannelFearActorSheet } from "./actor/actor-sheet.js";
-import { ChannelFearItem } from "./item/item.js";
-import { ChannelFearItemSheet } from "./item/item-sheet.js";
-import { systemConfig } from "./config/config.js";
+import {
+  reroll
+} from "./rolls/reroll.js";
+import {
+  ChannelFearActor
+} from "./actor/actor.js";
+import {
+  ChannelFearActorSheet
+} from "./actor/actor-sheet.js";
+import {
+  ChannelFearItem
+} from "./item/item.js";
+import {
+  ChannelFearItemSheet
+} from "./item/item-sheet.js";
+import {
+  systemConfig
+} from "./config/config.js";
 Hooks.once('init', async function () {
 
 
@@ -30,9 +43,13 @@ Hooks.once('init', async function () {
 
   // Register sheet application classes
   Actors.unregisterSheet("core", ActorSheet);
-  Actors.registerSheet("ChannelFear", ChannelFearActorSheet, { makeDefault: true });
+  Actors.registerSheet("ChannelFear", ChannelFearActorSheet, {
+    makeDefault: true
+  });
   Items.unregisterSheet("core", ItemSheet);
-  Items.registerSheet("ChannelFear", ChannelFearItemSheet, { makeDefault: true });
+  Items.registerSheet("ChannelFear", ChannelFearItemSheet, {
+    makeDefault: true
+  });
 
   // If you need to add Handlebars helpers, here are a few useful examples:
   Handlebars.registerHelper('concat', function () {
@@ -53,18 +70,20 @@ Hooks.once('init', async function () {
 Hooks.once("ready", async function () {
   // Wait to register hotbar drop hook on ready so that modules could register earlier if they want to
   Hooks.on("hotbarDrop", (bar, data, slot) => createChannelFearMacro(data, slot));
+
+
+    let rerollList = document.getElementsByClassName('rerollable');
+    console.log({
+      rerollList
+    });
+    for (let el of rerollList) {
+      el.addEventListener("click", reroll)
+    };
+ 
+
+
 });
-/*
-Hooks.on("preCreateActor", async function (actor) {
-  function changeImg(actor) {
-    let path = "systems/ChannelFear/img/icones/silhouette.png";
-    actor.img = path;
-    actor.token.data.img = path;
-    return actor;
-  }
-  changeImg(actor)
-})
-*/
+
 /* -------------------------------------------- */
 /*  Hotbar Macros                               */
 /* -------------------------------------------- */
@@ -90,7 +109,9 @@ async function createChannelFearMacro(data, slot) {
       type: "script",
       img: item.img,
       command: command,
-      flags: { "ChannelFear.itemMacro": true }
+      flags: {
+        "ChannelFear.itemMacro": true
+      }
     });
   }
   game.user.assignHotbarMacro(macro, slot);

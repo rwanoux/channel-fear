@@ -137,6 +137,8 @@
                     
                     <div class="item-controls">
                         {{#if isArme}}
+                        
+                        
                         <button class="boutondgt roll" rollCF="degats" rollDegats="{{item.data.des}}" rollSpe="{{item.name}}" rollRelances="{{item.data.relances}}">dégats</button>
                     {{/if}}
                         <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
@@ -144,6 +146,11 @@
                     </div>
                     
                 </li>
+                {{#if isArme}}
+                <p class="pastille">
+                    {{data.des}} dés de dégats {{data.relances}} relances
+                </p>
+                {{/if}}
                 {{{item.data.description}}}
                 
             </div>

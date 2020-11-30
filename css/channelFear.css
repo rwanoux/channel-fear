@@ -889,7 +889,8 @@ form button {
 }
 
 .channelfear .boutonApt,
-.channelfear .boutonSpe {
+.channelfear .boutonSpe,
+.channelfear .boutondgt {
   width: 85px;
   height: 40px;
   font: normal normal bold 12px/normal "Times New Roman", Times, serif;

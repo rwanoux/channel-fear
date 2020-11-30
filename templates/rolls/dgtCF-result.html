@@ -1,0 +1,22 @@
+<div class="titre1">
+    <p class="info">
+        jet de {{aptiName}} avec {{aptiDice}} dés
+    </p>
+    
+</div>
+<div class="bloque">
+    <span class="resultat left">{{result}} </span><span class="left">dégats</span>
+</div>
+<ul class="dice-rolls flexrow">
+    {{#each dicesResults as |d|}}
+            <li class=" die d6 dice{{d}}{{#if ../relanceDispo}} rerollable{{/if}} ">{{d}}</div>
+    {{/each}}
+</ul >
+
+{{#if relanceDispo}}
+<div class="bloque ">
+
+    <span class="info">vous pouvez relancer {{relanceDispo}} dés</span>
+
+</div>
+{{/if}}
