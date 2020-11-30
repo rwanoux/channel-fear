@@ -1,6 +1,6 @@
 import {
-  rollAptitude
-} from "../rolls/rollApti.js";
+  rollCF
+} from "../rolls/rollCF.js";
 import {
   toChat
 } from "../rolls/toChat.js";
@@ -37,16 +37,6 @@ export class ChannelFearActorSheet extends ActorSheet {
     if (this.actor.data.type == 'personnage') {
       this._prepareCharacterItems(data);
     }
-
-
-
-    //max 6 pour santé et ressources
-    if (data.data.compteurs.santé.value > 6) {
-      data.data.compteurs.santé.value = 6;
-    }
-    if (data.data.compteurs.ressource.value > 6) {
-      data.data.compteurs.ressource.value = 6;
-    }
     return data;
   }
 
@@ -61,7 +51,7 @@ export class ChannelFearActorSheet extends ActorSheet {
     const actorData = sheetData.actor;
 
 
-    return;
+    return actorData;
   }
 
   /* -------------------------------------------- */
@@ -114,18 +104,25 @@ export class ChannelFearActorSheet extends ActorSheet {
     // ----------rolls------------------
     html.find(".boutonApt").click(ev => {
 
-      let apt = ev.target.getAttribute("rollApti");
+      let apt = ev.target.getAttribute("rollCF");
       console.log(apt);
-      let aptDice = data.aptitudes[apt].value;
-      rollAptitude(actor, apt);
+      rollCF(actor, apt);
     });
 
     html.find(".boutonSpe").click(ev => {
-      let apt = ev.target.getAttribute("rollApti");
+      let apt = ev.target.getAttribute("rollCF");
       console.log(apt);
-      let aptDice = data.aptitudes[apt].value;
+      let spe=ev.target.getAttribute("rollSpe");
       let relanceDispo = ev.target.getAttribute("rollRelances");
-      rollAptitude(actor, apt, relanceDispo);
+      rollCF(actor, apt, relanceDispo,spe);
+    });
+    html.find(".boutondgt").click(ev => {
+      let apt = ev.target.getAttribute("rollCF");
+      console.log(apt);
+      let spe=ev.target.getAttribute("rollSpe");
+      let dgt=ev.target.getAttribute("rollDegats");
+      let relanceDispo = ev.target.getAttribute("rollRelances");
+      rollCF(actor, apt, relanceDispo,spe,dgt);
     });
 
     //---------to chat
@@ -187,6 +184,3 @@ export class ChannelFearActorSheet extends ActorSheet {
 
 }
 
-function agonise(actor) {
-  toChat(actor.name + " agonise");
-}

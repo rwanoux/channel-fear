@@ -215,26 +215,26 @@ form button {
 
 @-webkit-keyframes roll {
   from {
-    -webkit-transform: rotateX(4.58366deg) rotateY(-1.71887deg);
-    transform: rotateX(4.58366deg) rotateY(-1.71887deg);
+    -webkit-transform: scaleX(1.2) scaleY(1.2);
+    transform: scaleX(1.2) scaleY(1.2);
     -webkit-transform-origin: 50% 50% 0;
     transform-origin: 50% 50% 0;
   }
   33% {
-    -webkit-transform: rotateX(-6.87549deg) rotateY(-50.99324deg);
-    transform: rotateX(-6.87549deg) rotateY(-50.99324deg);
+    -webkit-transform: scaleX(0.8) scaleY(0.8);
+    transform: scaleX(0.8) scaleY(0.8);
     -webkit-transform-origin: 50% 50% 0;
     transform-origin: 50% 50% 0;
   }
   66% {
-    -webkit-transform: rotateX(-17.76169deg) rotateY(9.74028deg);
-    transform: rotateX(-17.76169deg) rotateY(9.74028deg);
+    -webkit-transform: scaleX(1.2) scaleY(1.2);
+    transform: scaleX(1.2) scaleY(1.2);
     -webkit-transform-origin: 50% 50% 0;
     transform-origin: 50% 50% 0;
   }
   to {
-    -webkit-transform: rotateX(-46.40958deg) rotateY(30.36676deg);
-    transform: rotateX(-46.40958deg) rotateY(30.36676deg);
+    -webkit-transform: scaleX(0.8) scaleY(0.8);
+    transform: scaleX(0.8) scaleY(0.8);
     -webkit-transform-origin: 50% 50% 0;
     transform-origin: 50% 50% 0;
   }
@@ -242,26 +242,26 @@ form button {
 
 @keyframes roll {
   from {
-    -webkit-transform: rotateX(4.58366deg) rotateY(-1.71887deg);
-    transform: rotateX(4.58366deg) rotateY(-1.71887deg);
+    -webkit-transform: scaleX(1.2) scaleY(1.2);
+    transform: scaleX(1.2) scaleY(1.2);
     -webkit-transform-origin: 50% 50% 0;
     transform-origin: 50% 50% 0;
   }
   33% {
-    -webkit-transform: rotateX(-6.87549deg) rotateY(-50.99324deg);
-    transform: rotateX(-6.87549deg) rotateY(-50.99324deg);
+    -webkit-transform: scaleX(0.8) scaleY(0.8);
+    transform: scaleX(0.8) scaleY(0.8);
     -webkit-transform-origin: 50% 50% 0;
     transform-origin: 50% 50% 0;
   }
   66% {
-    -webkit-transform: rotateX(-17.76169deg) rotateY(9.74028deg);
-    transform: rotateX(-17.76169deg) rotateY(9.74028deg);
+    -webkit-transform: scaleX(1.2) scaleY(1.2);
+    transform: scaleX(1.2) scaleY(1.2);
     -webkit-transform-origin: 50% 50% 0;
     transform-origin: 50% 50% 0;
   }
   to {
-    -webkit-transform: rotateX(-46.40958deg) rotateY(30.36676deg);
-    transform: rotateX(-46.40958deg) rotateY(30.36676deg);
+    -webkit-transform: scaleX(0.8) scaleY(0.8);
+    transform: scaleX(0.8) scaleY(0.8);
     -webkit-transform-origin: 50% 50% 0;
     transform-origin: 50% 50% 0;
   }
@@ -279,35 +279,41 @@ form button {
   animation-name: roll;
 }
 
-#chat-log span.resultat,
-#chat-log div.resultat {
-  display: inline-block;
-  line-height: 35px;
-  height: 35px;
-  width: 35px;
-  padding: 5px;
+#chat-log ul.dice-rolls li.die {
+  list-style: none;
+  position: relative;
+  width: 24px;
+  max-width: 24px;
+  line-height: 24px;
+  float: left;
+  margin-right: 5px;
+  background-repeat: no-repeat;
+  background-size: 24px 24px;
+  font-size: 16px;
+  color: #000;
+  font-weight: bold;
   text-align: center;
 }
 
-#chat-log div.resultat.dice1,
-#chat-log div.resultat.dice2,
-#chat-log div.resultat.dice3 {
+#chat-log li.dice1,
+#chat-log li.dice2,
+#chat-log li.dice3 {
   -webkit-box-shadow: 3px 3px 5px #995a5a;
   box-shadow: 3px 3px 5px #995a5a;
-  background-color: lightcoral;
+  background-color: #ff000042;
 }
 
-#chat-log div.resultat.dice4,
-#chat-log div.resultat.dice5 {
+#chat-log li.dice4,
+#chat-log li.dice5 {
   -webkit-box-shadow: 3px 3px 5px #6c906c;
   box-shadow: 3px 3px 5px #6c906c;
-  background-color: lightgreen;
+  background-color: #90ee905e;
 }
 
-#chat-log div.resultat.dice6 {
+#chat-log li.dice6 {
   -webkit-box-shadow: 3px 3px 5px #5e645e;
   box-shadow: 3px 3px 5px #5e645e;
-  background-color: #4eee4e;
+  background-color: #00ff003b;
 }
 
 #chat-log .resultat {
@@ -883,7 +889,8 @@ form button {
 }
 
 .channelfear .boutonApt,
-.channelfear .boutonSpe {
+.channelfear .boutonSpe,
+.channelfear .boutondgt {
   width: 85px;
   height: 40px;
   font: normal normal bold 12px/normal "Times New Roman", Times, serif;
