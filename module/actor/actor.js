@@ -9,12 +9,15 @@ export class ChannelFearActor extends Actor {
   /**
    * Augment the basic actor data with additional dynamic data.
    */
+
+
+
   prepareData() {
     super.prepareData();
-
     const actorData = this.data;
     const data = actorData.data;
     const flags = actorData.flags;
+    
 
 
     // Make separate methods for each Actor type (character, npc, etc.) to keep
@@ -27,7 +30,7 @@ export class ChannelFearActor extends Actor {
    * Prepare Character type specific data
    */
   _prepareCharacterData(actorData) {
-
+    
     let data = actorData;
 
 //checker le niv de santé pour appliquer les malus aux jets

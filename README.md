@@ -6,6 +6,11 @@ implémenter les jets de spécialités avec relances,
 rendre le tout plus joli
 macros des items armes
 
+### v0.0.4
+
+la carc ressource est automatiquement mise à jour après un succes total/échec total.
+On peut lancer les dégats des armes depuis la fiche de perso.
+
 ### v0.0.3
 
 correction de l'input des compteurs santé/ressource/évolution
