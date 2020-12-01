@@ -18,7 +18,9 @@ import {
   systemConfig
 } from "./config/config.js";
 Hooks.once('init', async function () {
-
+  var logo = document.getElementById("logo");
+  logo.setAttribute("src", "systems/ChannelFear/img/logoVTT.png");
+  logo.style.maxWidth="100px";
 
   CONFIG.debug.hooks = true;
   game.ChannelFear = {
