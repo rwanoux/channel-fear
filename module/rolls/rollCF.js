@@ -6,27 +6,29 @@ export async function rollCF(actor, apt, relanceDispo, spe, dgt) {
 
   if (apt === "degats") {
 
-    let diff = systemConfig.difficultes;
     let aptiName= "dégats";
     let apti = apt;
     let aptDice = dgt;
-    let formula = dgt+"d6x6cs>3";
+    let formula =`${dgt}d6x6cs>3`;
    
     let r = new Roll(formula, {
       apti: aptDice
     });
     r.roll();
-    console.log(r);
+    
     let dicesResults=[];
     for (let res of r.terms[0].results) {
       dicesResults.push(res.result);
     }
+    let aptiDice=r.terms[0].results.length;
+    console.log(aptiDice);
     let result = parseInt(r.result);
     let rollConfig = {
       "aptiName":aptiName,
-      "aptDice":aptDice,
+      "aptiDice":aptiDice,
       "result":result,
       "dicesResults": dicesResults,
+      relanceDispo: relanceDispo
     };
     const rollResultTemplate = 'systems/ChannelFear/templates/rolls/dgtCF-result.html';
     renderTemplate(rollResultTemplate, rollConfig).then(c => {

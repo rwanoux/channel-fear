@@ -17,6 +17,10 @@ import {
 import {
   systemConfig
 } from "./config/config.js";
+import * as Chat from "./chat.js"
+
+
+
 Hooks.once('init', async function () {
   var logo = document.getElementById("logo");
   logo.setAttribute("src", "systems/ChannelFear/img/logoVTT.png");
@@ -68,21 +72,12 @@ Hooks.once('init', async function () {
     return str.toLowerCase();
   });
 });
+//----reroll button chat ---
 
+Hooks.on("renderChatLog", (app,html,data)=>Chat.addChatListeners(app,html,data));
 Hooks.once("ready", async function () {
   // Wait to register hotbar drop hook on ready so that modules could register earlier if they want to
   Hooks.on("hotbarDrop", (bar, data, slot) => createChannelFearMacro(data, slot));
-
-
-    let rerollList = document.getElementsByClassName('rerollable');
-    console.log({
-      rerollList
-    });
-    for (let el of rerollList) {
-      el.addEventListener("click", reroll)
-    };
- 
-
 
 });
 
