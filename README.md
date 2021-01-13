@@ -6,6 +6,10 @@ implémenter les jets de spécialités avec relances,
 rendre le tout plus joli
 macros des items armes
 
+### v0.0.5
+
+les relances sont implémentées
+
 ### v0.0.4
 
 la carc ressource est automatiquement mise à jour après un succes total/échec total.

@@ -47,7 +47,7 @@
         <div class="titre1" title="en fonction du profil">SPECIALITES</div>
          
         {{#each actor.items as |item id|}}
-        {{#if isSpé}}
+        {{#if item.data.isSpé}}
         <div class="item  bloque" data-item-id="{{item._id}}">
 
             <div class="item-controls right">

@@ -316,6 +316,10 @@ form button {
   background-color: #00ff003b;
 }
 
+#chat-log .rerolled {
+  text-decoration: line-through;
+}
+
 #chat-log .resultat {
   font-size: 18px;
   margin: 5px;

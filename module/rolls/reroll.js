@@ -4,31 +4,42 @@ import {
 
 
 
-export async function reroll(event, html) {
+export async function reroll(event, html, data) {
     console.log("----------------reroll-----------");
-
-
-    let allDice = Array.prototype.slice.call(event.currentTarget.parentNode.children)
+    let allDice = Array.prototype.slice.call(event.currentTarget.parentNode.children);
+    let succes = html.find("span.resultat")[html.find("span.resultat").length - 1]
     let targetDie = event.currentTarget;
-    console.log(allDice);
-    console.log(allDice.indexOf(targetDie));
-
     let mess = targetDie.closest('.message');
-    let nbrRelance = html.find("span.nbrRelance")[html.find("span.nbrRelance").length - 1].innerText;
-    console.log(nbrRelance);
-    let r = new Roll('1d6x6cs>3');
+    let nbrRelance = html.find("span.nbrRelance")[html.find("span.nbrRelance").length - 1];
 
-    let rollConfig={
-        
-    }
-    const rollResultTemplate = 'systems/ChannelFear/templates/rolls/reroll.html';
-    renderTemplate(rollResultTemplate, rollConfig).then(c => {
+    if (parseInt(nbrRelance.innerText) > 0) {
+
+        let r = new Roll('1d6x6cs>3');
+        await r.roll;
+
         r.toMessage({
-            speaker: ChatMessage.getSpeaker(),
-            flags: {
-                channelFear: "roll"
+
+                speaker: ChatMessage.getSpeaker(),
+                flags: {
+                    channelFear: "roll"
+                },
+                title: "jet de relance",
+                rollMode: "blind"
             },
-            content: c,
-        });
-    })
+
+        );
+        let newDie = targetDie.cloneNode();
+        let reroll = r.terms[0].results[0].result;
+        newDie.innerText = reroll;
+        targetDie.classList.add(`rerolled`);
+        newDie.classList.add(`dice${reroll}`)
+        event.currentTarget.parentNode.append(newDie);
+        nbrRelance.innerText = parseInt(nbrRelance.innerText) - 1;
+        if (reroll > 3) {
+            succes.innerText = parseInt(succes.innerText) + 1;
+        }
+    } else {
+        ui.notifications.warn("Vous n'avez plus de relances disponible")
+    }
+
 }

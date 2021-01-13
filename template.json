@@ -85,16 +85,19 @@
     "Item": {
         "types": ["objet", "arme", "spécialité"],
         "objet": {
+            "isObject":true,
             "description": "",
             "quantity": 1
         },
         "armes": {
+            "isArme":true,
             "des":1,
             "relances":0,
             "description": ""
 
         },
         "spécialité": {
+            "isSpé":true,
             "aptitudeName": "",
             "aptitudeValue": 0,
             "relances": 0
