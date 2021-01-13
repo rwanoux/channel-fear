@@ -318,6 +318,9 @@ form button {
 
 #chat-log .rerolled {
   text-decoration: line-through;
+  background-color: grey !important;
+  -webkit-text-decoration-color: red;
+  text-decoration-color: red;
 }
 
 #chat-log .resultat {

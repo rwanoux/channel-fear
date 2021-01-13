@@ -32,6 +32,7 @@ export async function reroll(event, html, data) {
         let reroll = r.terms[0].results[0].result;
         newDie.innerText = reroll;
         targetDie.classList.add(`rerolled`);
+        targetDie.classList.remove("rerollable")
         newDie.classList.add(`dice${reroll}`)
         event.currentTarget.parentNode.append(newDie);
         nbrRelance.innerText = parseInt(nbrRelance.innerText) - 1;
