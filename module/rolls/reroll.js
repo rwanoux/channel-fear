@@ -5,7 +5,6 @@ import {
 
 
 export async function reroll(event, message, html, user) {
-    console.log(message.collection);
 
     let allDice = Array.prototype.slice.call(event.currentTarget.parentNode.children);
     let succes = html.find("span.resultat")[html.find("span.resultat").length - 1]
@@ -13,8 +12,6 @@ export async function reroll(event, message, html, user) {
     let mess_el = targetDie.closest('.message');
     let mess_id = mess_el.getAttribute("data-message-id");
     let mess_obj = message.collection.get(mess_id)
-    console.log(mess_obj);
-    console.log(mess_id)
 
 
     let nbrRelance = html.find("span.nbrRelance")[html.find("span.nbrRelance").length - 1];

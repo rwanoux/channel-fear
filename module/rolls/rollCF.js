@@ -3,16 +3,14 @@ import {
 } from "../config/config.js";
 
 export async function rollCF(actor, apt, relanceDispo, spe, dgt) {
-
+console.log(arguments)
   if (apt === "degats") {
 
     let aptiName= "dégats";
-    let apti = apt;
-    let aptDice = dgt;
     let formula =`${dgt}d6x6cs>3`;
    
     let r = new Roll(formula, {
-      apti: aptDice
+      apti: dgt
     });
     r.roll();
     
@@ -51,8 +49,9 @@ export async function rollCF(actor, apt, relanceDispo, spe, dgt) {
 
     //----------configs
     let diff = systemConfig.difficultes;
-    let apti = actor.data.data.aptitudes[apt].label;
-    let aptDice = actor.data.data.aptitudes[apt].value;
+    let regCarac = /['  ]/;
+    let apti = actor.data.data.aptitudes[apt.replace(regCarac,"")].label;
+    let aptDice = actor.data.data.aptitudes[apt.replace(regCarac,"")].value;
     let ress = actor.data.data.compteurs.ressource.value;
     let newRess = ress;
     let formula = "(@apti)d6x6cs>3";
