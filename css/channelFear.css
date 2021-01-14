@@ -895,12 +895,12 @@ form button {
   font: italic normal bold 20px/normal "Times New Roman", Times, serif;
 }
 
-.channelfear .boutonApt,
-.channelfear .boutonSpe,
-.channelfear .boutondgt {
+.channelfear a.boutonApt,
+.channelfear a.boutonSpe,
+.channelfear a.boutondgt {
   width: 85px;
   height: 40px;
-  font: normal normal bold 12px/normal "Times New Roman", Times, serif;
+  padding: 5px;
   color: rgba(255, 255, 255, 0.9);
   text-align: center;
   -o-text-overflow: clip;

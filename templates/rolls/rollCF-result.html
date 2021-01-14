@@ -9,19 +9,26 @@
     {{/if}}
 </div>
 <div class="bloque">
-    <span class="resultat left">{{result}} </span><span class="left">succès</span>
-    <span class=" right"> difficulté {{difficulte}}</span>
+    <p><span class="resultat left">{{result}} </span><span class="left">succès aux dés</span></p>
+        {{#if ressource}}
+        <p>
+        <span class="resultat left">+{{ressource}} </span><span class="left">succès automatiques</span>
+        </p>{{/if}}
+
+    <p><span class=" right"> difficulté {{difficulte}}</span></p>
+
 </div>
 <ul class="dice-rolls flexrow">
     {{#each dicesResults as |d|}}
-            <li class=" die d6 dice{{d}}{{#if ../relanceDispo}} rerollable{{/if}} ">{{d}}</div>
-    {{/each}}
-</ul >
+    <li class=" die d6 dice{{d}}{{#if ../relanceDispo}} rerollable{{/if}} ">{{d}}</div>
+        {{/each}}
+</ul>
 
 {{#if relanceDispo}}
 <div class="bloque ">
 
-    <span class="info">vous pouvez relancer <span class="nbrRelance" dataRelance="{{relanceDispo}}">{{relanceDispo}}</span> dés</span>
+    <span class="info">vous pouvez relancer <span class="nbrRelance"
+            dataRelance="{{relanceDispo}}">{{relanceDispo}}</span> dés</span>
 
 </div>
 {{/if}}
@@ -33,16 +40,22 @@
 {{/if}}
 {{#if reussite}}
 <div class="bloque reussite">
-    c'est une réussite
+   <p>c'est une réussite</p> 
+    
 </div>
 {{/if}}
 {{#if echecT}}
 <div class="bloque echec">
     c'est un échec total <p class="info">(-1pt de resource)</p>
+    <p>votre ressource est à  {{newRess}}</p>
 </div>
 {{/if}}
 {{#if reussiteT}}
 <div class="bloque reussite">
     c'est une reussite totale <p class="info">(+1pt de resource)</p>
+    <p>votre ressource est à  {{newRess}}</p>
 </div>
 {{/if}}
+
+
+

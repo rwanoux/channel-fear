@@ -89,7 +89,7 @@
             "description": "",
             "quantity": 1
         },
-        "armes": {
+        "arme": {
             "isArme":true,
             "des":1,
             "relances":0,

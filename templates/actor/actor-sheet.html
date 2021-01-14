@@ -1,4 +1,5 @@
 <form class="{{cssClass}} charsheet " autocomplete="off">
+    
   <img src="systems/ChannelFear/img/logochannel.png" class="logo driveInRight">
   <div class="bloque infos ">
       <div class="titre1">INFORMATIONS</div>
@@ -26,7 +27,7 @@
 
       <div>
           <input class="channelfear" type="number" name="data.aptitudes.{{id}}.value" value="{{apti.value}}" data-dtype="Number">
-          <button type="button" class="boutonApt roll">{{apti.label}}</button>
+          <a  class="boutonApt roll">{{apti.label}}</a>
       </div>
 
       {{/each}}
@@ -42,7 +43,7 @@
 
       <div class="spe">
           <input class="channelfear" type="text" name="data.specialites.spe1.label" value="{{data.specialites.spe1.label}}" data-dtype="text" />
-          <button type="roll " class="boutonSpe ">jet</button>
+          <a type="roll " class="boutonSpe ">jet</a>
           <div>
 
               <div class="selectApti ">

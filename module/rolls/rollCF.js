@@ -49,7 +49,7 @@ console.log(arguments)
 
     //----------configs
     let diff = systemConfig.difficultes;
-    let regCarac = /['  ]/;
+    let regCarac = /['  -]/;
     let apti = actor.data.data.aptitudes[apt.replace(regCarac,"")].label;
     let aptDice = actor.data.data.aptitudes[apt.replace(regCarac,"")].value;
     let ress = actor.data.data.compteurs.ressource.value;
@@ -60,7 +60,7 @@ console.log(arguments)
       diff: diff,
       actor: actor,
       apti: apti,
-      ressources: ress,
+      ress: ress,
       usedRess: 0
     });
 
@@ -89,6 +89,7 @@ console.log(arguments)
     async function roll(html, actor) {
 
       let diffRoll = html.find("#diff").val();
+      let ressource=html.find("#ressource").val()
       let reussite = false;
       let echec = false;
       let reussiteT = false;
@@ -104,17 +105,17 @@ console.log(arguments)
       let dicesResults = [];
       let relances = nbDes - parseInt(aptDice);
       let result = parseInt(r.result);
-      if (result == diffRoll) {
+      if (result+ressource == diffRoll) {
         reussite = true;
       }
-      if (result > diffRoll) {
+      if (result+ressource > diffRoll) {
         newRess++;
         reussiteT = true;
       }
-      if (result < diffRoll) {
+      if (result+ressource < diffRoll) {
         echec = true;
       }
-      if (result == 0) {
+      if (result+ressource == 0) {
         echec = false;
         newRess--;
         echecT = true;
@@ -124,8 +125,11 @@ console.log(arguments)
       for (let res of r.terms[0].results) {
         dicesResults.push(res.result);
       }
+      if (ressource){newRess=newRess-ressource};
+      if (newRess >6){newRess=6};
 
       let rollConfig = {
+        ressource:ressource,
         spe: spe,
         dicesResults: dicesResults,
         actor: actor,
@@ -138,7 +142,8 @@ console.log(arguments)
         echec: echec,
         reussiteT: reussiteT,
         echecT: echecT,
-        relanceDispo: relanceDispo
+        relanceDispo: relanceDispo,
+        newRess:newRess
       };
 
 

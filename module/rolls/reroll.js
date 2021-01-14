@@ -24,7 +24,7 @@ export async function reroll(event, message, html, user) {
 
             speaker: ChatMessage.getSpeaker(),
         });
-        console.log(r.terms[0])
+        
         for (let d of r.terms[0].results) {
             console.log(d)
             let newDie = targetDie.cloneNode();
@@ -36,11 +36,12 @@ export async function reroll(event, message, html, user) {
             newDie.classList.add(`dice${reroll}`);
             event.currentTarget.parentNode.append(newDie);
 
-            nbrRelance.innerText = parseInt(nbrRelance.innerText) - 1;
+            
             if (reroll > 3) {
                 succes.innerText = parseInt(succes.innerText) + 1;
             }
         }
+        nbrRelance.innerText = parseInt(nbrRelance.innerText) - 1;
         let content = mess_el.innerHTML;
         const chatData = {
             content: content,
