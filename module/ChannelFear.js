@@ -74,7 +74,7 @@ Hooks.once('init', async function () {
 });
 //----reroll button chat ---
 
-Hooks.on("renderChatLog", (app,html,data)=>Chat.addChatListeners(app,html,data));
+Hooks.on("renderChatLog", (app,message,html,data)=>Chat.addChatListeners(app,message,html,data));
 Hooks.once("ready", async function () {
   // Wait to register hotbar drop hook on ready so that modules could register earlier if they want to
   Hooks.on("hotbarDrop", (bar, data, slot) => createChannelFearMacro(data, slot));

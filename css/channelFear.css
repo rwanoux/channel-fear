@@ -668,7 +668,7 @@ form button {
 
 .channelfear .infos {
   grid-column: 1/2;
-  grid-row: 2/4;
+  grid-row: 1/4;
 }
 
 .channelfear .aptitudes {
