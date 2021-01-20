@@ -169,7 +169,6 @@ console.log(arguments)
         })
 
       });
-      //updater la ressource si succes total ou echec total
 
 
     }
