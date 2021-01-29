@@ -3,7 +3,7 @@
   "title": "Channel Fear",
   "description": 
   "The channel fear system for FoundryVTT! --FRENCH ONLY--",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "minimumCoreVersion": "0.7.5",
   "compatibleCoreVersion": "0.7.9",
   "templateVersion": 2,
