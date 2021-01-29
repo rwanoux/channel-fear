@@ -22,9 +22,6 @@ import * as Chat from "./chat.js"
 
 
 Hooks.once('init', async function () {
-  var logo = document.getElementById("logo");
-  logo.setAttribute("src", "systems/ChannelFear/img/logoVTT.png");
-  logo.style.maxWidth="100px";
 
   CONFIG.debug.hooks = true;
   game.ChannelFear = {
@@ -79,6 +76,10 @@ Hooks.on("renderChatLog", (app,message,html,data)=>{
   Chat.addChatListeners(app,message,html,data)
 });
 Hooks.once("ready", async function () {
+  var logo = document.getElementById("logo");
+  logo.setAttribute("src", "/systems/ChannelFear/img/logoVTT.png");
+  logo.style.maxWidth="100px";
+
   // Wait to register hotbar drop hook on ready so that modules could register earlier if they want to
   Hooks.on("hotbarDrop", (bar, data, slot) => createChannelFearMacro(data, slot));
 
