@@ -2,9 +2,9 @@
   "name": "ChannelFear",
   "title": "Channel Fear",
   "description": "The channel fear system for FoundryVTT! --FRENCH ONLY--",
-  "version": "0.0.6",
-  "minimumCoreVersion": "0.7.5",
-  "compatibleCoreVersion": "0.7.9",
+  "version": "0.0.7",
+  "minimumCoreVersion": "0.8.6",
+  "compatibleCoreVersion": "0.8.8",
   "templateVersion": 2,
   "author": "Rwanoux",
   "esmodules": [
