@@ -40,9 +40,9 @@ Hooks.once('init', async function () {
     decimals: 2
   };
 
-  // Define custom Entity classes
-  CONFIG.Actor.entityClass = ChannelFearActor;
-  CONFIG.Item.entityClass = ChannelFearItem;
+  // Define custom document classes
+  CONFIG.Actor.documentClass = ChannelFearActor;
+  CONFIG.Item.documentClass = ChannelFearItem;
 
   // Register sheet application classes
   Actors.unregisterSheet("core", ActorSheet);
@@ -71,14 +71,14 @@ Hooks.once('init', async function () {
 });
 //----reroll button chat ---
 
-Hooks.on("renderChatLog", (app,message,html,data)=>{
-  
-  Chat.addChatListeners(app,message,html,data)
+Hooks.on("renderChatLog", (app, message, html, data) => {
+
+  Chat.addChatListeners(app, message, html, data)
 });
 Hooks.once("ready", async function () {
   var logo = document.getElementById("logo");
   logo.setAttribute("src", "/systems/ChannelFear/img/logoVTT.png");
-  logo.style.maxWidth="100px";
+  logo.style.maxWidth = "100px";
 
   // Wait to register hotbar drop hook on ready so that modules could register earlier if they want to
   Hooks.on("hotbarDrop", (bar, data, slot) => createChannelFearMacro(data, slot));

@@ -14,14 +14,14 @@ export class ChannelFearItem extends Item {
     const actorData = this.actor ? this.actor.data : {};
     const data = itemData.data;
     // Basic data
-    let isOwner = this.entity.owner;
-    
+    let isOwner = this.documentName.isOwner;
 
-      itemData.isArme= this.data.type === "arme";
-      itemData.isItem= this.data.type === "item";
-      itemData.isSpé= this.data.type === 'spécialité';
 
-    
+    itemData.isArme = this.data.type === "arme";
+    itemData.isItem = this.data.type === "item";
+    itemData.isSpé = this.data.type === 'spécialité';
+
+
   };
 
   /**
@@ -43,5 +43,5 @@ export class ChannelFearItem extends Item {
       flavor: label
     });
   }
-  
+
 }

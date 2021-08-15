@@ -7,16 +7,18 @@
 
     <div class="compteur ">
         <label class="pastille">dés de dégats</label>
-        <input class="channelfear" type="number" name="data.des" value="{{data.des}}" data-dtype="Number" />
+        <input class="channelfear" type="number" name="data.des" value="{{data.data.des}}" data-dtype="Number" />
 
 
         <label class="pastille">relance</label>
-        <input class="channelfear"type="number" name="data.relances" value="{{data.relances}}" data-dtype="Number" />
+        <input class="channelfear" type="number" name="data.relances" value="{{data.data.relances}}"
+            data-dtype="Number" />
     </div>
 
 
     <section class=" bloque">
         <label class="pastille">description</label>
-            {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
+        {{editor content=data.data.description target="data.data.description" button=true isOwner=isOwner
+        editable=editable}}
     </section>
 </form>

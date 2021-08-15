@@ -32,6 +32,7 @@ export class ChannelFearActorSheet extends ActorSheet {
   /** @override */
   getData() {
     const data = super.getData();
+
     data.dtypes = ["String", "Number", "Boolean"];
     // Prepare items.
     if (this.actor.data.type == 'personnage') {
@@ -90,7 +91,7 @@ export class ChannelFearActorSheet extends ActorSheet {
     html.find('.rollable').click(this._onRoll.bind(this));
 
     // Drag events for macros.
-    if (this.actor.owner) {
+    if (this.actor.isOwner) {
       let handler = ev => this._onDragItemStart(ev);
       html.find('li.item').each((i, li) => {
         if (li.classList.contains("inventory-header")) return;
@@ -112,17 +113,17 @@ export class ChannelFearActorSheet extends ActorSheet {
     html.find(".boutonSpe").click(ev => {
       let apt = ev.target.getAttribute("rollCF");
       console.log(apt);
-      let spe=ev.target.getAttribute("rollSpe");
+      let spe = ev.target.getAttribute("rollSpe");
       let relanceDispo = ev.target.getAttribute("rollRelances");
-      rollCF(actor, apt, relanceDispo,spe);
+      rollCF(actor, apt, relanceDispo, spe);
     });
     html.find(".boutondgt").click(ev => {
       let apt = ev.target.getAttribute("rollCF");
       console.log(apt);
-      let spe=ev.target.getAttribute("rollSpe");
-      let dgt=ev.target.getAttribute("rollDegats");
+      let spe = ev.target.getAttribute("rollSpe");
+      let dgt = ev.target.getAttribute("rollDegats");
       let relanceDispo = ev.target.getAttribute("rollRelances");
-      rollCF(actor, apt, relanceDispo,spe,dgt);
+      rollCF(actor, apt, relanceDispo, spe, dgt);
     });
 
     //---------to chat
